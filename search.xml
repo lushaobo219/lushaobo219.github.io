@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>在windows平台，运行celery报错</title>
+    <url>/2020/09/15/%E5%9C%A8windows%E5%B9%B3%E5%8F%B0%EF%BC%8C%E8%BF%90%E8%A1%8Ccelery%E6%8A%A5%E9%94%99/</url>
+    <content><![CDATA[<h3 id="windows平台上，在django项目中，使用celery做异步任务时报错"><a href="#windows平台上，在django项目中，使用celery做异步任务时报错" class="headerlink" title="windows平台上，在django项目中，使用celery做异步任务时报错!"></a>windows平台上，在django项目中，使用celery做异步任务时报错!</h3><p><img src="/imags/%E5%9C%A8windows%E5%B9%B3%E5%8F%B0%EF%BC%8C%E8%BF%90%E8%A1%8Ccelery%E6%8A%A5%E9%94%99/celery.png" alt=""></p>
+<h3 id="个人解决方法，不一定全部适用，在启动celery命令加上-–pool-solo"><a href="#个人解决方法，不一定全部适用，在启动celery命令加上-–pool-solo" class="headerlink" title="个人解决方法，不一定全部适用，在启动celery命令加上 –pool=solo"></a>个人解决方法，不一定全部适用，在启动celery命令加上 –pool=solo</h3><p><code>celery -A celery_tasks worker --poll=solo -l info</code></p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我的第一篇博客</title>
     <url>/2019/12/21/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[]]></content>

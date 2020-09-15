@@ -49,19 +49,22 @@
   };
 </script>
 
-  <meta name="description" content="暖暖的阳光，懒懒的幸福">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+  <meta name="description" content="windows平台上，在django项目中，使用celery做异步任务时报错! 个人解决方法，不一定全部适用，在启动celery命令加上 –pool&#x3D;solocelery -A celery_tasks worker --poll&#x3D;solo -l info">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在windows平台，运行celery报错">
+<meta property="og:url" content="http://yoursite.com/2020/09/15/%E5%9C%A8windows%E5%B9%B3%E5%8F%B0%EF%BC%8C%E8%BF%90%E8%A1%8Ccelery%E6%8A%A5%E9%94%99/index.html">
 <meta property="og:site_name" content="少年和狗">
-<meta property="og:description" content="暖暖的阳光，懒懒的幸福">
+<meta property="og:description" content="windows平台上，在django项目中，使用celery做异步任务时报错! 个人解决方法，不一定全部适用，在启动celery命令加上 –pool&#x3D;solocelery -A celery_tasks worker --poll&#x3D;solo -l info">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-12-23T12:10:10.000Z">
-<meta property="article:modified_time" content="2019-12-24T07:05:16.589Z">
+<meta property="og:image" content="http://yoursite.com/imags/%E5%9C%A8windows%E5%B9%B3%E5%8F%B0%EF%BC%8C%E8%BF%90%E8%A1%8Ccelery%E6%8A%A5%E9%94%99/celery.png">
+<meta property="article:published_time" content="2020-09-14T23:56:37.000Z">
+<meta property="article:modified_time" content="2020-09-15T00:45:08.866Z">
 <meta property="article:author" content="Mr Lu">
+<meta property="article:tag" content="随笔">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/imags/%E5%9C%A8windows%E5%B9%B3%E5%8F%B0%EF%BC%8C%E8%BF%90%E8%A1%8Ccelery%E6%8A%A5%E9%94%99/celery.png">
 
-<link rel="canonical" href="http://yoursite.com/categories/">
+<link rel="canonical" href="http://yoursite.com/2020/09/15/%E5%9C%A8windows%E5%B9%B3%E5%8F%B0%EF%BC%8C%E8%BF%90%E8%A1%8Ccelery%E6%8A%A5%E9%94%99/">
 
 
 <script id="page-configurations">
@@ -69,12 +72,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>about | 少年和狗
-  </title>
+  <title>在windows平台，运行celery报错 | 少年和狗</title>
   
 
 
@@ -207,52 +209,127 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
           <div class="content">
             
 
   <div class="posts-expand">
-    
-    
-    
-    <div class="post-block" lang="zh-CN">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">about
-</h1>
-
-<div class="post-meta">
+      
   
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/15/%E5%9C%A8windows%E5%B9%B3%E5%8F%B0%EF%BC%8C%E8%BF%90%E8%A1%8Ccelery%E6%8A%A5%E9%94%99/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gou.jpg">
+      <meta itemprop="name" content="Mr Lu">
+      <meta itemprop="description" content="暖暖的阳光，懒懒的幸福">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="少年和狗">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          在windows平台，运行celery报错
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-15 07:56:37 / 修改时间：08:45:08" itemprop="dateCreated datePublished" datetime="2020-09-15T07:56:37+08:00">2020-09-15</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>120</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="windows平台上，在django项目中，使用celery做异步任务时报错"><a href="#windows平台上，在django项目中，使用celery做异步任务时报错" class="headerlink" title="windows平台上，在django项目中，使用celery做异步任务时报错!"></a>windows平台上，在django项目中，使用celery做异步任务时报错!</h3><p><img src="/imags/%E5%9C%A8windows%E5%B9%B3%E5%8F%B0%EF%BC%8C%E8%BF%90%E8%A1%8Ccelery%E6%8A%A5%E9%94%99/celery.png" alt=""></p>
+<h3 id="个人解决方法，不一定全部适用，在启动celery命令加上-–pool-solo"><a href="#个人解决方法，不一定全部适用，在启动celery命令加上-–pool-solo" class="headerlink" title="个人解决方法，不一定全部适用，在启动celery命令加上 –pool=solo"></a>个人解决方法，不一定全部适用，在启动celery命令加上 –pool=solo</h3><p><code>celery -A celery_tasks worker --poll=solo -l info</code></p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Mr Lu
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2020/09/15/%E5%9C%A8windows%E5%B9%B3%E5%8F%B0%EF%BC%8C%E8%BF%90%E8%A1%8Ccelery%E6%8A%A5%E9%94%99/" title="在windows平台，运行celery报错">http://yoursite.com/2020/09/15/在windows平台，运行celery报错/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
 </div>
 
-</header>
 
-      
-      
-      
-      <div class="post-body">
-          <div class="category-all-page">
-            <div class="category-all-title">
-              暂无分类
-            </div>
-            <div class="category-all">
-              
-            </div>
+	<div>
+	
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+	
+	</div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag"># 随笔</a>
           </div>
-        
-      </div>
-      
-      
-      
-    </div>
-    
 
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/21/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" rel="prev" title="我的第一篇博客">
+      <i class="fa fa-chevron-left"></i> 我的第一篇博客
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
     
-    
-    
+  </article>
+  
+  
+  
+
   </div>
 
 
@@ -304,6 +381,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#windows平台上，在django项目中，使用celery做异步任务时报错"><span class="nav-number">1.</span> <span class="nav-text">windows平台上，在django项目中，使用celery做异步任务时报错!</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人解决方法，不一定全部适用，在启动celery命令加上-–pool-solo"><span class="nav-number">2.</span> <span class="nav-text">个人解决方法，不一定全部适用，在启动celery命令加上 –pool&#x3D;solo</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

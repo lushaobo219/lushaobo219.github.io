@@ -1169,7 +1169,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #0e65b1;
+  background: #249c7e;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2713,5 +2713,30 @@ body {
   }
   .pagination {
     margin: 8px 0 0;
+  }
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #fafcc2;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: #ccf6c8;
+  -webkit-border-radius: 5px;
+}
+.site-meta {
+  height: 100px;
+  background: none;
+  background-image: url("/images/jing.jpg");
+  background-size: cover;
+}
+@media (max-width: 767px) {
+  .site-meta {
+    height: 80px;
+    background: #222;
   }
 }

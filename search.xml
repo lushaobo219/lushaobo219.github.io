@@ -1,6 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>测试用例</title>
+    <url>/2021/05/05/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/</url>
+    <content><![CDATA[<h1 id="1-什么是测试用例"><a href="#1-什么是测试用例" class="headerlink" title="1.什么是测试用例"></a>1.什么是测试用例</h1><h2 id="1-1-什么是测试用例"><a href="#1-1-什么是测试用例" class="headerlink" title="1.1.什么是测试用例"></a>1.1.什么是测试用例</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">一组由前提条件、输入、执行条件、预期结果等组成，以完成对某个特定需求或者目标测试的数据，体现测试方案、方法、技术和策略的文档</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-2-为什么要写测试用例"><a href="#1-2-为什么要写测试用例" class="headerlink" title="1.2.为什么要写测试用例"></a>1.2.为什么要写测试用例</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">科学有效的对测试步骤进行组织规划，方便管理，记录</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-3-测试用例的主要组成"><a href="#1-3-测试用例的主要组成" class="headerlink" title="1.3.测试用例的主要组成"></a>1.3.测试用例的主要组成</h2><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="../imags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/v2-.png" alt=""></p>
+<h2 id="1-4-编写测试用例需要什么"><a href="#1-4-编写测试用例需要什么" class="headerlink" title="1.4.编写测试用例需要什么"></a>1.4.编写测试用例需要什么</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">软件需求设计说明书、软件模板</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-5-测试用例的特征"><a href="#1-5-测试用例的特征" class="headerlink" title="1.5.测试用例的特征"></a>1.5.测试用例的特征</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">正确性、完整性、准确性、清晰简洁、可维护性、适应性</span><br><span class="line"></span><br><span class="line">1，代表性：能够代表并覆盖各种合理与不合理、合法与不合法、边界与越界以及极限的输入数据、操作等</span><br><span class="line">2，针对性：对程序中的可能存在的错误有针对性的测试</span><br><span class="line">3，可判定性：测试执行结果的正确性是可判定的，每一个测试用例都应有相应的期望结果</span><br><span class="line">4，可重现性：对同样的测试用例，系统的执行结果应当是相同的</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-6-用例的管理工具"><a href="#1-6-用例的管理工具" class="headerlink" title="1.6.用例的管理工具"></a>1.6.用例的管理工具</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">列举几个：mantis、redmine、jira、bugzilla、禅道等</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-7-编写测试用例三部曲："><a href="#1-7-编写测试用例三部曲：" class="headerlink" title="1.7.编写测试用例三部曲："></a>1.7.<strong>编写测试用例三部曲：</strong></h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1,根据需求提取测试用例的测试点</span><br><span class="line">2,根据测试点内容输入不同数据类型</span><br><span class="line">3,得到不同结果用来编写测试用例</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h1 id="2-测试用例例图"><a href="#2-测试用例例图" class="headerlink" title="2.测试用例例图"></a>2.测试用例例图</h1><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="../imags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E5%9B%BE2-1620220953048.png" alt=""></p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="../imags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%A1%A8.png" alt=""></p>
+<h1 id="3-测试方法"><a href="#3-测试方法" class="headerlink" title="3.测试方法"></a>3.测试方法</h1><h2 id="3-1-等价类划分"><a href="#3-1-等价类划分" class="headerlink" title="3.1.等价类划分"></a>3.1.等价类划分</h2><h3 id="3-1-1-等价类划分介绍"><a href="#3-1-1-等价类划分介绍" class="headerlink" title="3.1.1.等价类划分介绍"></a>3.1.1.等价类划分介绍</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">等价类划分是一种典型的黑盒测试方法。</span><br><span class="line">等价类划分是指分步骤把海量（无限）的测试用例集减得很小，但过程同样有效。也就是说，选取足够小测试用例，发现更多软件缺陷。</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-1-2-等价类划分类型划分"><a href="#3-1-2-等价类划分类型划分" class="headerlink" title="3.1.2.等价类划分类型划分"></a>3.1.2.等价类划分类型划分</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">等价类划分有两种不同情况：有效等价类和无效等价类。</span><br><span class="line">有效等价类：有效等价类是程序规格说明有意义，合理的输入数据。</span><br><span class="line">无效等价类：无效等价类是程序规格说明无意义，不合理的输入数据。</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-1-3-等价类的原则"><a href="#3-1-3-等价类的原则" class="headerlink" title="3.1.3.等价类的原则"></a>3.1.3.等价类的原则</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.在输入条件规定了取值范围或值的个数的情况下，可以确立一个有效等价类和两个无效等价类。</span><br><span class="line"></span><br><span class="line">2.在输入条件规定了输入值的集合或者规定了“必须如何”的条件情况下，可以确定一个有效等价类和一个无效等价类</span><br><span class="line"></span><br><span class="line">3.在输入条件是一个布尔量的情况下，可以确定一个有效等价类和一个无效等价类。</span><br><span class="line"></span><br><span class="line">4.在规定了输入数据的一组值（假定n个），并且程序要对每一个输入值分别处理的情况下，可确立n个有效等价类和一个无效等价类。</span><br><span class="line"></span><br><span class="line">5.在规定了输入数据必须遵守的规则的情况下，可确立一个有效等价类（符合规则）和若干个无效等价类（从不同角度违反规则）。</span><br><span class="line"></span><br><span class="line">6.在确知已划分的等价类中，各元素在程序处理中的方式不同的情况下，则应再将该等价类进一步地划分为更小的等价类</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-1-4-等价类划分例题"><a href="#3-1-4-等价类划分例题" class="headerlink" title="3.1.4.等价类划分例题"></a>3.1.4.等价类划分例题</h3><p>一个程序读入3个整数，把这3个数值作为一个三角形的3条边的长度值，这个程序要打印出信息，说明这个三角形是不是等边的、是等腰的、还是一般的</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">我们可以设三角形的3条边分别为A,B,C。如果它们能构成三角形，必须满足：A&gt;0,B&gt;0,C&gt;0,A+B&gt;C,A+C&gt;B,B+C&gt;A。</span><br><span class="line"></span><br><span class="line">如果是等腰的，还有判断 A&#x3D;B,或B&#x3D;C,或A&#x3D;C</span><br><span class="line"></span><br><span class="line">如果是等边的，则需判断A&#x3D;B且B&#x3D;C且A&#x3D;C</span><br></pre></td></tr></table></figure>
+
+<p>列出等价类表，如下：</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="../imags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/1-1620221839370.png" alt=""></p>
+<p>设计测试用例：输入顺序是 A,B,C，如下表：</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="../imags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/2.png" alt=""></p>
+<h2 id="3-2-边界值分析"><a href="#3-2-边界值分析" class="headerlink" title="3.2.边界值分析"></a>3.2.边界值分析</h2><h4 id="3-2-1-概述"><a href="#3-2-1-概述" class="headerlink" title="3.2.1.概述"></a>3.2.1.概述</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">边界值分析不是从某等价类中随便挑一个典型值或者任意值作为测试数据，而是着重测试已划分出的等价类的每个边界，选取正好等于、刚刚大于或刚刚小于边界的值作为测试数据。也就是边界值方法中常说的边界5点，即上点、内点和离点。</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-2-上点，内点，离点"><a href="#3-2-2-上点，内点，离点" class="headerlink" title="3.2.2.上点，内点，离点"></a>3.2.2.上点，内点，离点</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.上点：是指边界上的点，如果域的边界是闭区间的，上点就是在域范围内，如果是开区间的话，上点就是在域范围外。</span><br><span class="line"></span><br><span class="line">2.离点：是指离上点最近的点，如果域的边界是是开区间，那么离点就在范围域内，如果是闭区间，那么离点就在域范围外。</span><br><span class="line"></span><br><span class="line">3.内点：域内的任意一个点都是内点。</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-3-举例"><a href="#3-2-3-举例" class="headerlink" title="3.2.3.举例"></a>3.2.3.举例</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.区间为正整数值域[66,88]，上点就是66，88，并且都是在域范围内。内点就是域内得任意点，离点是65，89。</span><br><span class="line"></span><br><span class="line">2.区间为正整数值域（66,88]，这种情况上点是66，88，其中一个是域内，一个是域外，内点就是域内的任意点，离点是：67，89。</span><br><span class="line"></span><br><span class="line">3.区间为正整数值域(66,88)，这样的情况上点还是66，88，只是都是在域外，内点还是域内的任意点，离点此时为：67，87。</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-4-常见的边界值"><a href="#3-2-4-常见的边界值" class="headerlink" title="3.2.4.常见的边界值"></a>3.2.4.常见的边界值</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.对16-bit 的整数而言 32767 和 -32768 是边界</span><br><span class="line"></span><br><span class="line">2.屏幕上光标在最左上、最右下位置</span><br><span class="line"></span><br><span class="line">3.报表的第一行和最后一行</span><br><span class="line"></span><br><span class="line">4.数组元素的第一个和最后一个</span><br><span class="line"></span><br><span class="line">5.循环的第 0 次、第 1 次和倒数第 2 次、最后一次</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-5-利用边界值作为测试数据"><a href="#3-2-5-利用边界值作为测试数据" class="headerlink" title="3.2.5.利用边界值作为测试数据"></a>3.2.5.利用边界值作为测试数据</h4><table>
+<thead>
+<tr>
+<th><strong>项</strong></th>
+<th><strong>边界值</strong></th>
+<th><strong>测试用例的设计思路</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>字符</td>
+<td>起始-1个字符/结束+1个字符</td>
+<td>假设一个文本输入区域允许输入1个到255个 字符，输入1个和255个字符作为有效等价类；输入0个和256个字符作为无效等价类，这几个数值都属于边界条件值。</td>
+</tr>
+<tr>
+<td>数值</td>
+<td>最小值-1/最大值+1</td>
+<td>假设某软件的数据输入域要求输入5位的数据值，可以使用10000作为最小值、99999作为最大值；然后使用刚好小于5位和大于5位的 数值来作为边界条件。</td>
+</tr>
+<tr>
+<td>空间</td>
+<td>小于空余空间一点/大于满空间一点</td>
+<td>例如在用U盘存储数据时，使用比剩余磁盘空间大一点（几KB）的文件作为边界条件。</td>
+</tr>
+</tbody></table>
+<h3 id="3-3-场景法"><a href="#3-3-场景法" class="headerlink" title="3.3.场景法"></a>3.3.场景法</h3><h4 id="3-3-1-场景法原理"><a href="#3-3-1-场景法原理" class="headerlink" title="3.3.1.场景法原理"></a>3.3.1.场景法原理</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">在测试一个软件的时候，在场景法中，测试流程是软件功能按照正确的事件流实现的一条正确流程，那么我们把这个称为该软件的基本流；而凡是出现故障或缺陷的过程，就用备选流加以标注，这样的话，备选流就可以是从基本流来的，或是由备选流中引出的。所以在进行图示的时候，就会发现每个事件流的颜色是不同的。</span><br></pre></td></tr></table></figure>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="../imags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/3.png" alt=""></p>
+<h4 id="3-3-2-场景法基本设计步骤"><a href="#3-3-2-场景法基本设计步骤" class="headerlink" title="3.3.2.场景法基本设计步骤"></a>3.3.2.场景法基本设计步骤</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.根据说明，描述出程序的基本流及各项备选流</span><br><span class="line">2.根据基本流和各项备选流生成不同的场景</span><br><span class="line">3.对每一个场景生成相应的测试用例</span><br><span class="line">4.对生成的所有测试用例重新复审，去掉多余的测试用例，测试用例确定后，对每一个测试用例确定测试数据值</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-3-场景法例子"><a href="#3-3-3-场景法例子" class="headerlink" title="3.3.3.场景法例子"></a>3.3.3.场景法例子</h4><p>在线购物系统，整个订购过程为：用户登录到网站后，进行书籍的选择，当选好自己心仪的书籍后进行订购，这时把所需图书放进购物车，等进行结帐的时候，用户需要登录自己注册的帐号，登录成功后，进行结帐并生成订单，整个购物过程结束。</p>
+<table>
+<thead>
+<tr>
+<th>基本流</th>
+<th>用户登录到网站，书籍的选择，进行订购，把所需图书放进购物车，等进行结帐的时候，登录自己的帐号，登录成功后，生成订单</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>备选流1</td>
+<td>帐号不存在</td>
+</tr>
+<tr>
+<td>备选流2</td>
+<td>帐号错误</td>
+</tr>
+<tr>
+<td>备选流3</td>
+<td>密码错误</td>
+</tr>
+<tr>
+<td>备选流4</td>
+<td>无选购书籍</td>
+</tr>
+<tr>
+<td>备选流x</td>
+<td>退出系统</td>
+</tr>
+</tbody></table>
+<p>根据基本流和备选流来确定场景：</p>
+<table>
+<thead>
+<tr>
+<th>场景1-购物成功</th>
+<th>基本流</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>场景2-帐号不存在</td>
+<td>基本流</td>
+<td>备选流1</td>
+</tr>
+<tr>
+<td>场景3-帐号错误</td>
+<td>基本流</td>
+<td>备选流2</td>
+</tr>
+<tr>
+<td>场景4-密码错误</td>
+<td>基本流</td>
+<td>备选流3</td>
+</tr>
+<tr>
+<td>场景5-无选购书籍</td>
+<td>基本流</td>
+<td>备选流4</td>
+</tr>
+</tbody></table>
+<h3 id="3-4-因果图法"><a href="#3-4-因果图法" class="headerlink" title="3.4.因果图法"></a>3.4.因果图法</h3><h4 id="3-4-1-概述"><a href="#3-4-1-概述" class="headerlink" title="3.4.1.概述"></a>3.4.1.概述</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">在一个模块或一个界面中，有多个控件,这些控件存在约束关系或组合关系，且输出依赖于输入条件,则可以使用因果图法</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-4-2-因果图法步骤"><a href="#3-4-2-因果图法步骤" class="headerlink" title="3.4.2.因果图法步骤"></a>3.4.2.因果图法步骤</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.找出所有的输入条件</span><br><span class="line">2.找出所有的输出条件</span><br><span class="line">3.明确所有输入条件之间的制约关系以及组合关系</span><br><span class="line">4.明确所有输出条件之间的制约关系以及组合关系</span><br><span class="line">5.找出怎么样的输入条件组合会产生那种输出结果</span><br><span class="line">6.根据因果图写出判定表</span><br><span class="line">7.根据判定表写出测试用例</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-4-3-因果图法要点"><a href="#3-4-3-因果图法要点" class="headerlink" title="3.4.3.因果图法要点"></a>3.4.3.因果图法要点</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.恒等、或（V）、与（∧）、非（~）、互斥（E）、包含（I）、唯一（O）、要求（R）、屏蔽（M）</span><br><span class="line">2.因果图法主要考虑控件之间条件的组合关系</span><br><span class="line">3.每个控件的条件不宜过多,最好为2个</span><br><span class="line">4.控件较多,或每个控件的条件过多，不宜用因果图法</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-5-正交法"><a href="#3-5-正交法" class="headerlink" title="3.5.正交法"></a>3.5.正交法</h3><h4 id="3-5-1-概述"><a href="#3-5-1-概述" class="headerlink" title="3.5.1.概述"></a>3.5.1.概述</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">能够使用最小的测试过程集合获得最大的测试覆盖率</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-5-2-正交法步骤"><a href="#3-5-2-正交法步骤" class="headerlink" title="3.5.2.正交法步骤"></a>3.5.2.正交法步骤</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.根据所测程序中控件的个数以及每个控件的取值个数,选取一个合适的正交排列表</span><br><span class="line">2.把控件以及取值列出来,并对取值进行编号</span><br><span class="line">3.把控件以及取值映射到正交排列表中</span><br><span class="line">4.根据映射好的正交排列表编写测试用例</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-5-3-正交表法两个特点"><a href="#3-5-3-正交表法两个特点" class="headerlink" title="3.5.3.正交表法两个特点"></a>3.5.3.正交表法两个特点</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.每列中不同数字出现的次数相等。这一特点表明每个因素的每个水平与其它因素的每个水平参与试验的几率是完全相同的，从而保证了在各个水平中最大限度地排除了其它因素水平的干扰，能有效地比较试验结果并找出最优的试验条件。</span><br><span class="line"></span><br><span class="line">2.在任意2列其横向组成的数字对中，每种数字对出现的次数相等。这个特点保证了试验点均匀地分散在因素与水平的完全组合之中，因此具有很强的代表性</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-5-4-n阶拉丁方"><a href="#3-5-4-n阶拉丁方" class="headerlink" title="3.5.4.n阶拉丁方"></a>3.5.4.<strong>n阶拉丁方</strong></h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">用n个不同的拉丁字母排成一个n阶方阵（n&lt;26），如果每行的n个字母均不相同，每列的n个字母均不相同，即每个字母在任一行、任一列中只出现一次，则称这种方阵为n*n拉丁方或n阶拉丁方。</span><br></pre></td></tr></table></figure>
+
+<p>如，3阶拉丁方</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="../imags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/4.png" alt=""></p>
+<h4 id="3-5-5-正交拉丁方"><a href="#3-5-5-正交拉丁方" class="headerlink" title="3.5.5.正交拉丁方"></a>3.5.5.<strong>正交拉丁方</strong></h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">设有两个n阶的拉丁方，如果将它们叠合在一起，恰好出现n^2个不同的有序数对，则称为这两个拉丁方为互相正交的拉丁方，简称正交拉丁方</span><br></pre></td></tr></table></figure>
+
+<p>用数字替代拉丁字母</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="../imags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/5.png" alt=""></p>
+<h3 id="3-6-错误推断法"><a href="#3-6-错误推断法" class="headerlink" title="3.6.错误推断法"></a>3.6.错误推断法</h3><p>判断表主要侧重输入条件之间的逻辑关系（画因果图只是一个辅助工具，通过分析最终得到判定表，再通过判定表编写测试用例）</p>
+<h4 id="3-6-1-错误推断法步骤"><a href="#3-6-1-错误推断法步骤" class="headerlink" title="3.6.1.错误推断法步骤"></a>3.6.1.错误推断法步骤</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.找出所有的输入条件</span><br><span class="line">2.找出所有的输出条件</span><br><span class="line">3.明确所有输入条件之间的制约关系以及组合关系</span><br><span class="line">4.明确所有输出条件之间的制约关系以及组合关系</span><br><span class="line">5.找出怎么样的输入条件组合会产生那种输出结果</span><br><span class="line">6.根据因果图写出判定表</span><br><span class="line">7.根据判定表写出测试用例</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-6-2-错误推断法要点"><a href="#3-6-2-错误推断法要点" class="headerlink" title="3.6.2.错误推断法要点"></a>3.6.2.错误推断法要点</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.规格说明以判定表的形式给出，或很容易转换成判定表</span><br><span class="line">2.条件的排列顺序不影响执行哪些操作</span><br><span class="line">3.规则的排列顺序不影响执行哪些操作</span><br><span class="line">4.当某一规则的条件已经满足，并确定要执行的操作后，不必检验别的规则</span><br><span class="line">5.如果某一规则要执行多个操作，这些操作的执行顺序无关紧要</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>软件测试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>软件测试介绍</title>
     <url>/2021/04/29/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E4%BB%8B%E7%BB%8D/</url>
     <content><![CDATA[<h2 id="1-软件测试定义，目的，概括"><a href="#1-软件测试定义，目的，概括" class="headerlink" title="1.软件测试定义，目的，概括"></a>1.软件测试定义，目的，概括</h2><h3 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1, 定义"></a>1.1, 定义</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">软件测试是使用人工或自动的手段来运行或测定某个软件系统的过程，其目的在于检验它是否满足规定的需求或弄清预期结果与实际结果之间的差别。</span><br></pre></td></tr></table></figure>

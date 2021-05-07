@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>软件测试常见面试题</title>
+    <url>/2021/05/06/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+    <content><![CDATA[<p>每天持续更新</p>
+<h1 id="1-软件测试的原则和目的是什么？"><a href="#1-软件测试的原则和目的是什么？" class="headerlink" title="1.软件测试的原则和目的是什么？"></a>1.软件测试的原则和目的是什么？</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">目的：</span><br><span class="line">1，通过测试工作可以发现并修复软件当中存在的缺陷</span><br><span class="line">2，可以降低同产品开发遇到的风险</span><br><span class="line">3，记录软件运行过程中的一些数据，从而为决策者提供技术支持</span><br><span class="line">原则：</span><br><span class="line">1，2&#x2F;8定律，核心功能占20%，非核心占80%，我们会集中测试20%的核心功能，发现缺陷的几率会高于80%，因此，遇到的缺陷都会集中20%功能模块里。</span><br><span class="line">2，不能进行穷尽测试，有些功能是无法将所有测试情况逻辑出来的，任何的测试都有结束的时间。</span><br><span class="line">3，为了更好地发现和解决软件中的缺陷</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-测试人员在测试中的任务是什么？"><a href="#2-测试人员在测试中的任务是什么？" class="headerlink" title="2.测试人员在测试中的任务是什么？"></a>2.测试人员在测试中的任务是什么？</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1，尽早的找出系统中的Bug</span><br><span class="line">2，避免软件开发过程中缺陷的出现</span><br><span class="line">3，确保缺件的质量</span><br><span class="line">4，关注用户的需求，并保证系统符合用户需求</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-缺陷报告内容包括什么？"><a href="#3-缺陷报告内容包括什么？" class="headerlink" title="3.缺陷报告内容包括什么？"></a>3.缺陷报告内容包括什么？</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1,Bug的优先级</span><br><span class="line">2，Bug的严重程度</span><br><span class="line">3.开发的接口人员，与Bug产生对应的软件版本</span><br><span class="line">4，Bug可能属于的模块。如果不能确认，可以由开发人员来判读</span><br><span class="line">5，Bug标题，需要清晰的描述现象</span><br><span class="line">6，Bug描述，需要尽量给出新的Bug步骤</span><br><span class="line">7，Bug附件中能给出相关的日志与截图</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-请您描述一下测试的V模型？"><a href="#4-请您描述一下测试的V模型？" class="headerlink" title="4.请您描述一下测试的V模型？"></a>4.请您描述一下测试的V模型？</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">用户需求-需求分析-概要设计-详细设计-编码-单元测试-集成测试-系统测试-验收测试</span><br></pre></td></tr></table></figure>
+
+<h1 id="5-BS-CS架构的区别是什么？"><a href="#5-BS-CS架构的区别是什么？" class="headerlink" title="5.BS/CS架构的区别是什么？"></a>5.BS/CS架构的区别是什么？</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">概念：所谓的架构就是用来指导我们软件开发的一种思维，目前最长见的就是BS&#x2F;CS.</span><br><span class="line">B—browser 浏览器</span><br><span class="line">C—clent 客户端</span><br><span class="line">S—server 服务端</span><br><span class="line">区别：</span><br><span class="line">1，标准：相对于cs架构来说Bs架构的两端都是使用现成的成熟产品，bs会显示的标准一些。</span><br><span class="line">2，效率：相对于bs架构来说cs中的客户端可以分担一些数据的处理，执行效率会高一些。</span><br><span class="line">3，安全：bs架构当中得到数据的传输都是以Http协议进行传输的，而Http协议又是明文输出。可以被抓包，那么cs架构比Bs架构显得就不那么安全了，（其实都是相对的）。</span><br><span class="line">4，升级：bs架构只需要在服务器端将数据进行更新，前台只需要刷新页面就可以升级，而cs架构必须要将两端都进行更新才可以。</span><br><span class="line">5，开发成本：相对于bs架构来说cs当中的客户端需要自己开发，bs不用，所以说cs成本会高一些。</span><br></pre></td></tr></table></figure>
+
+<h1 id="6-测试的计划内容以及重要性"><a href="#6-测试的计划内容以及重要性" class="headerlink" title="6.测试的计划内容以及重要性"></a>6.测试的计划内容以及重要性</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">测试计划的内容：测试计划分为测试需求和测试计划,测试需求分为功能需求和性能需求,</span><br><span class="line">功能需求包括:</span><br><span class="line">1,逻辑功能</span><br><span class="line">2,易用性</span><br><span class="line">3,兼容性</span><br><span class="line">4,安装卸载等功能性需求</span><br><span class="line">性能需求关注的就是：</span><br><span class="line">1,响应时间2成功率</span><br><span class="line">3,吞吐量</span><br><span class="line">4,CPU占有率</span><br><span class="line">5，事物通过率</span><br><span class="line">6，内存占有率等主要的能够反映我们软件和服务器性能的参数</span><br><span class="line">项目测试需求</span><br><span class="line">我们的性能需求是这样提的，30个在线用户按照正常的操作速度访问xxx功能，成功率是100%,且90%的响应时间不超过4s，当并发在线用户数超过100个时，xxx的成功率大于98%，其中90%的在线用户数的请求响应时间是不大于用户的最大容忍时间10s。</span><br><span class="line">测试计划：</span><br><span class="line">1,根据需求,产品原型图,UI效果图编写测试计划</span><br><span class="line">2,测试背景</span><br><span class="line">3,工期评定</span><br><span class="line">4,人员安排</span><br><span class="line">5,进度安排</span><br><span class="line">6,测试班次</span><br></pre></td></tr></table></figure>
+
+<h1 id="7-你们公司的流程是什么样的？"><a href="#7-你们公司的流程是什么样的？" class="headerlink" title="7.你们公司的流程是什么样的？"></a>7.你们公司的流程是什么样的？</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">我们公司的流程是，首先是要立项确定项目--产品会出一个产品说明书--需求人员编写需求文档--需求评审--开发编写详细设计--测试编写测试用例--测试用例评审--开发进行编码--测试部署环境进行测试--首先进行冒烟测试（主的业务要实现）--接着进行功能测试--出现bug使用禅道进行记录跟踪--开发进行修改--测试进行验证--然后进行回归测试--接着验收测试--验收测试通过--进行上线</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>软件测试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常见Linux命令</title>
     <url>/2021/05/06/%E5%B8%B8%E8%A7%81Linux%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h1 id="一-文件和目录"><a href="#一-文件和目录" class="headerlink" title="一.文件和目录"></a>一.文件和目录</h1><h2 id="1-cd命令，用于切换当前目录，它的参数是要切换到的目录的路径，可以是绝对路径，也可以是相对路径。"><a href="#1-cd命令，用于切换当前目录，它的参数是要切换到的目录的路径，可以是绝对路径，也可以是相对路径。" class="headerlink" title="1.cd命令，用于切换当前目录，它的参数是要切换到的目录的路径，可以是绝对路径，也可以是相对路径。"></a>1.cd命令，用于切换当前目录，它的参数是要切换到的目录的路径，可以是绝对路径，也可以是相对路径。</h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line">cd /home    进入 '/ home' 目录</span><br><span class="line">cd ..            返回上一级目录 </span><br><span class="line">cd ../..         返回上两级目录 </span><br><span class="line">cd               进入个人的主目录 </span><br><span class="line">cd ~user1   进入个人的主目录 </span><br><span class="line">cd -             返回上次所在的目录</span><br></pre></td></tr></table></figure>

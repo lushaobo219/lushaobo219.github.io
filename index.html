@@ -174,7 +174,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">14</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">15</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -225,6 +225,119 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/05/10/Linux%E4%B8%8B%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEJDK-Tomcat-Jenkins-mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gou.jpg">
+      <meta itemprop="name" content="Mr Lu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="少年和狗">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/10/Linux%E4%B8%8B%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEJDK-Tomcat-Jenkins-mysql/" class="post-title-link" itemprop="url">Linux下安装配置JDK+Tomcat+Jenkins+mysql</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-10 20:46:46" itemprop="dateCreated datePublished" datetime="2021-05-10T20:46:46+08:00">2021-05-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-11 10:19:55" itemprop="dateModified" datetime="2021-05-11T10:19:55+08:00">2021-05-11</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1，JDK安装"><a href="#1，JDK安装" class="headerlink" title="1，JDK安装"></a>1，JDK安装</h1><h3 id="1-1-新建jdk文件夹（路径：-usr-local-jdk）"><a href="#1-1-新建jdk文件夹（路径：-usr-local-jdk）" class="headerlink" title="1.1)  新建jdk文件夹（路径：/usr/local/jdk）"></a>1.1)  新建jdk文件夹（路径：/usr/local/jdk）</h3><h3 id="1-2-将jdk安装包解压到jdk文件夹中"><a href="#1-2-将jdk安装包解压到jdk文件夹中" class="headerlink" title="1.2)  将jdk安装包解压到jdk文件夹中"></a>1.2)  将jdk安装包解压到jdk文件夹中</h3><h4 id="tar-–xvf-jdk-7u71-linux-i586-tar-gz-–C-usr-local-jdk"><a href="#tar-–xvf-jdk-7u71-linux-i586-tar-gz-–C-usr-local-jdk" class="headerlink" title="tar –xvf jdk-7u71-linux-i586.tar.gz –C /usr/local/jdk/"></a>tar –xvf jdk-7u71-linux-i586.tar.gz –C /usr/local/jdk/</h4><p>(下载安装包的时候，注意系统位数，我的是64位，附上下载地址：<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html</a>)</p>
+<h3 id="1-3-配置jdk环境变量，打开-etc-profile配置文件，将下面配置拷贝进去"><a href="#1-3-配置jdk环境变量，打开-etc-profile配置文件，将下面配置拷贝进去" class="headerlink" title="1.3)  配置jdk环境变量，打开/etc/profile配置文件，将下面配置拷贝进去"></a>1.3)  配置jdk环境变量，打开/etc/profile配置文件，将下面配置拷贝进去</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#set java environment</span><br><span class="line">JAVA_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;jdk&#x2F;jdk1.8.0_131</span><br><span class="line">CLASSPATH&#x3D;.:$JAVA_HOME&#x2F;lib.tools.jar</span><br><span class="line">PATH&#x3D;$JAVA_HOME&#x2F;bin:$PATH</span><br><span class="line">export JAVA_HOME CLASSPATH PATH</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4-重新加载-etc-profile配置文件-source-etc-profile"><a href="#1-4-重新加载-etc-profile配置文件-source-etc-profile" class="headerlink" title="1.4)  重新加载/etc/profile配置文件 source /etc/profile"></a>1.4)  重新加载/etc/profile配置文件 source /etc/profile</h3><p>​                            验证：java –version</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="../imags/Linux%E4%B8%8B%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEJDK-Tomcat-Jenkins-mysql/1.png" alt=""></p>
+<p>​                            有版本号出现，说明jdk安装成功</p>
+<h1 id="2，安装Tomcat"><a href="#2，安装Tomcat" class="headerlink" title="2，安装Tomcat"></a>2，安装Tomcat</h1><h3 id="2-1-新建tomcat文件夹（路径：-usr-local-tomcat）"><a href="#2-1-新建tomcat文件夹（路径：-usr-local-tomcat）" class="headerlink" title="2.1)  新建tomcat文件夹（路径：/usr/local/tomcat）"></a>2.1)  新建tomcat文件夹（路径：/usr/local/tomcat）</h3><h3 id="2-1-将安装包解压到tomcat文件夹中"><a href="#2-1-将安装包解压到tomcat文件夹中" class="headerlink" title="2.1)  将安装包解压到tomcat文件夹中"></a>2.1)  将安装包解压到tomcat文件夹中</h3><h4 id="tar-xvf-apache-tomcat-7-0-63-tar-gz-C-usr-local-tomcat"><a href="#tar-xvf-apache-tomcat-7-0-63-tar-gz-C-usr-local-tomcat" class="headerlink" title="tar -xvf apache-tomcat-7.0.63.tar.gz -C /usr/local/tomcat/"></a>tar -xvf apache-tomcat-7.0.63.tar.gz -C /usr/local/tomcat/</h4><p>(附上下载地址:<a href="https://blog.csdn.net/xuexiaoxu1990/article/details/" target="_blank" rel="noopener">http://tomcat.apache.org/download-70.cgi</a>)</p>
+<h3 id="2-3）打开防火墙"><a href="#2-3）打开防火墙" class="headerlink" title="2.3）打开防火墙"></a>2.3）打开防火墙</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># &#x2F;sbin&#x2F;iptables -I INPUT -p tcp --dport 8080 -j ACCEPT</span><br><span class="line">&#x2F;etc&#x2F;rc.d&#x2F;init.d&#x2F;iptables save</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4）测试tomcat"><a href="#2-4）测试tomcat" class="headerlink" title="2.4）测试tomcat"></a>2.4）测试tomcat</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">进入tomcat的bin下启动：.&#x2F;startup.sh</span><br><span class="line">进入tomcat的bin下关闭：.&#x2F;shutdown.sh</span><br></pre></td></tr></table></figure>
+
+<p>在本地浏览器地址栏输入：http:localhost:8080</p>
+<p>tomcat默认端口为8080，如和其他应用端口号冲突，可在/usr/tomcat/apache-tomcat-7.0.27/conf/server.xml中修改</p>
+<p>出现tomcat的页面表示安装成功</p>
+<h1 id="3，安装jenkins"><a href="#3，安装jenkins" class="headerlink" title="3，安装jenkins"></a>3，安装jenkins</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1) 将jenkins.war包放在tomcat下的webapps目录里面 (附上下载地址：https:&#x2F;&#x2F;jenkins.io&#x2F;index.html)</span><br><span class="line">2) 添加变量 </span><br><span class="line">	vi &#x2F;etc&#x2F;profile&#x2F;</span><br><span class="line">	末尾添加 export JENKINS_HOME&#x3D;&#x2F;usr&#x2F;tomcat&#x2F;apache-tomcat-7.0.27&#x2F;webapps&#x2F;jenkins</span><br><span class="line">3）刷新配置</span><br><span class="line">	source &#x2F;etc&#x2F;profile&#x2F;</span><br><span class="line">4）本地浏览器输入：http:&#x2F;&#x2F;localhost:8080&#x2F;jenkins</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="4，安装Mysql"><a href="#4，安装Mysql" class="headerlink" title="4，安装Mysql"></a>4，安装Mysql</h1><h3 id="4-1）新建mysql文件夹（路径：-usr-local-mysql）"><a href="#4-1）新建mysql文件夹（路径：-usr-local-mysql）" class="headerlink" title="4.1）新建mysql文件夹（路径：/usr/local/mysql）"></a>4.1）新建mysql文件夹（路径：/usr/local/mysql）</h3><h3 id="4-2）将安装包解压到mysql文件夹中"><a href="#4-2）将安装包解压到mysql文件夹中" class="headerlink" title="4.2）将安装包解压到mysql文件夹中"></a>4.2）将安装包解压到mysql文件夹中</h3><h4 id="tar-xvf-MySQL-5-6-22-1-el6-i686-rpm-bundle-tar-C-usr-local-mysql"><a href="#tar-xvf-MySQL-5-6-22-1-el6-i686-rpm-bundle-tar-C-usr-local-mysql" class="headerlink" title="tar -xvf MySQL-5.6.22-1.el6.i686.rpm-bundle.tar -C /usr/local/mysql"></a>tar -xvf MySQL-5.6.22-1.el6.i686.rpm-bundle.tar -C /usr/local/mysql</h4><p>(附上下载地址: <a href="https://dev.mysql.com/downloads/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/</a>)</p>
+<h3 id="4-3）安装mysql的客户端与服务端（-usr-local-mysql）"><a href="#4-3）安装mysql的客户端与服务端（-usr-local-mysql）" class="headerlink" title="4.3）安装mysql的客户端与服务端（/usr/local/mysql）"></a>4.3）安装mysql的客户端与服务端（/usr/local/mysql）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">安装服务器端：rpm -ivh MySQL-server-5.6.22-1.el6.i686.rpm</span><br><span class="line"></span><br><span class="line">安装客户端：rpm -ivh MySQL-client-5.6.22-1.el6.i686.rpm</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-4）启动mysql"><a href="#4-4）启动mysql" class="headerlink" title="4.4）启动mysql"></a>4.4）启动mysql</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysql start</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-5）将mysql加到系统服务中并设置开机启动"><a href="#4-5）将mysql加到系统服务中并设置开机启动" class="headerlink" title="4.5）将mysql加到系统服务中并设置开机启动"></a>4.5）将mysql加到系统服务中并设置开机启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">加入到系统服务：chkconfig --add mysql</span><br><span class="line"></span><br><span class="line">自动启动：chkconfig mysql on</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-6）登录mysql（5-5的版本为空）"><a href="#4-6）登录mysql（5-5的版本为空）" class="headerlink" title="4.6）登录mysql（5.5的版本为空）"></a>4.6）登录mysql（5.5的版本为空）</h3><p>mysql安装好后会生成一个临时随机密码，存储位置在/root/.mysql_secret</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msyql –u root -p</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-7）修改mysql的密码"><a href="#4-7）修改mysql的密码" class="headerlink" title="4.7）修改mysql的密码"></a>4.7）修改mysql的密码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set password &#x3D; password(&#39;root&#39;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-8）开启mysql的远程登录"><a href="#4-8）开启mysql的远程登录" class="headerlink" title="4.8）开启mysql的远程登录"></a>4.8）开启mysql的远程登录</h3><p>默认情况下mysql为安全起见，不支持远程登录mysql，所以需要设置开启 远程登录mysql的权限登录mysql后输入如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on *.* to &#39;root&#39; @&#39;%&#39; identified by &#39;root&#39;;</span><br><span class="line"></span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-9）开放Linux的对外访问的端口3306"><a href="#4-9）开放Linux的对外访问的端口3306" class="headerlink" title="4.9）开放Linux的对外访问的端口3306"></a>4.9）开放Linux的对外访问的端口3306</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;sbin&#x2F;iptables -I INPUT -p tcp --dport 3306 -j ACCEPT</span><br><span class="line"></span><br><span class="line">&#x2F;etc&#x2F;rc.d&#x2F;init.d&#x2F;iptables save  ---将修改永久保存到防火墙中</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -1362,100 +1475,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/23/Dockerfile%E7%9A%84%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%88%9B%E5%BB%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/gou.jpg">
-      <meta itemprop="name" content="Mr Lu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少年和狗">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/23/Dockerfile%E7%9A%84%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%88%9B%E5%BB%BA/" class="post-title-link" itemprop="url">'Dockerfile的介绍与创建'</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-23 11:30:28" itemprop="dateCreated datePublished" datetime="2020-09-23T11:30:28+08:00">2020-09-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-25 11:42:33" itemprop="dateModified" datetime="2020-09-25T11:42:33+08:00">2020-09-25</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-Dockerfile介绍"><a href="#1-Dockerfile介绍" class="headerlink" title="1:Dockerfile介绍"></a><strong>1:Dockerfile介绍</strong></h2><h3 id="Dockerfile概念："><a href="#Dockerfile概念：" class="headerlink" title="Dockerfile概念："></a><strong>Dockerfile概念：</strong></h3><p>Dockerfile用来构建镜像，对镜像描述，安装了哪些软件，执行了哪些操作，使用了哪个父镜像</p>
-<p>简单理解为镜像如何被创建出来的。</p>
-<p>Dockerfile是一个文件，按照一定格式编写：</p>
-<p>Dockerfile结构大致分为四个部分：</p>
-<p>　　（1）基础镜像信息</p>
-<p>　　（2）维护者信息</p>
-<p>　　（3）镜像操作指令</p>
-<p>　　（4）容器启动时执行指令。</p>
-<p>Dockerfile每行支持一条指令，每条指令可带多个参数，支持使用以#号开头的注释。下面会对上面使用到的一些常用指令做一些介绍。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/23/Dockerfile%E7%9A%84%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%88%9B%E5%BB%BA/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1528,7 +1547,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1585,13 +1604,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">35k</span>
+    <span title="站点总字数">38k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">32 分钟</span>
+    <span title="站点阅读时长">34 分钟</span>
 </div>
 
         

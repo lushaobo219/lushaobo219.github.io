@@ -73,7 +73,7 @@
 <meta property="og:description" content="一.文件和目录1.cd命令，用于切换当前目录，它的参数是要切换到的目录的路径，可以是绝对路径，也可以是相对路径。123456cd &#x2F;home    进入 &#39;&#x2F; home&#39; 目录cd ..            返回上一级目录 cd ..&#x2F;..         返回上两级目录 cd               进入个人的主目录 cd ~user1   进入个人的主目录 cd -">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-06T10:55:48.000Z">
-<meta property="article:modified_time" content="2021-05-13T11:45:47.129Z">
+<meta property="article:modified_time" content="2021-05-22T07:47:47.273Z">
 <meta property="article:author" content="Mr Lu">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -264,7 +264,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-13 19:45:47" itemprop="dateModified" datetime="2021-05-13T19:45:47+08:00">2021-05-13</time>
+                <time title="修改时间：2021-05-22 15:47:47" itemprop="dateModified" datetime="2021-05-22T15:47:47+08:00">2021-05-22</time>
               </span>
 
           
@@ -303,6 +303,8 @@
 
 <h2 id="2-pwd命令，显示工作路径"><a href="#2-pwd命令，显示工作路径" class="headerlink" title="2.pwd命令，显示工作路径"></a>2.pwd命令，显示工作路径</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@mailvip ~]# pwd</span><br><span class="line">/root</span><br></pre></td></tr></table></figure>
 
+<a id="more"></a>
+
 <h2 id="3-ls命令，查看文件与目录的命令，list之意"><a href="#3-ls命令，查看文件与目录的命令，list之意" class="headerlink" title="3.ls命令，查看文件与目录的命令，list之意"></a>3.ls命令，查看文件与目录的命令，list之意</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ls 查看目录中的文件 </span><br><span class="line">ls -l 显示文件和目录的详细资料 </span><br><span class="line">ls -a 列出全部文件，包含隐藏文件</span><br><span class="line">ls -R 连同子目录的内容一起列出（递归列出），等于该目录下的所有文件都会显示出来  </span><br><span class="line">ls [0-9] 显示包含数字的文件名和目录名</span><br></pre></td></tr></table></figure>
 
 <h2 id="4-cp命令，用于复制文件，copy之意，它还可以把多个文件一次性地复制到一个目录下"><a href="#4-cp命令，用于复制文件，copy之意，它还可以把多个文件一次性地复制到一个目录下" class="headerlink" title="4.cp命令，用于复制文件，copy之意，它还可以把多个文件一次性地复制到一个目录下"></a>4.cp命令，用于复制文件，copy之意，它还可以把多个文件一次性地复制到一个目录下</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-a ：将文件的特性一起复制</span><br><span class="line">-p ：连同文件的属性一起复制，而非使用默认方式，与-a相似，常用于备份</span><br><span class="line">-i ：若目标文件已经存在时，在覆盖时会先询问操作的进行</span><br><span class="line">-r ：递归持续复制，用于目录的复制行为 &#x2F;&#x2F;经常使用递归复制</span><br><span class="line">-u ：目标文件与源文件有差异时才会复制</span><br></pre></td></tr></table></figure>
@@ -311,7 +313,7 @@
 
 <h2 id="6-rm命令，用于删除文件或目录，remove之意"><a href="#6-rm命令，用于删除文件或目录，remove之意" class="headerlink" title="6.rm命令，用于删除文件或目录，remove之意"></a>6.rm命令，用于删除文件或目录，remove之意</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-f ：就是force的意思，忽略不存在的文件，不会出现警告消息</span><br><span class="line">-i ：互动模式，在删除前会询问用户是否操作</span><br><span class="line">-r ：递归删除，最常用于目录删除，它是一个非常危险的参数</span><br></pre></td></tr></table></figure>
 
-<a id="more"></a>
+<!--more-->
 
 <h1 id="二-查看文件内容"><a href="#二-查看文件内容" class="headerlink" title="二.查看文件内容"></a>二.查看文件内容</h1><h2 id="1-cat命令，用于查看文本文件的内容，后接要查看的文件名，通常可用管道与more和less一起使用"><a href="#1-cat命令，用于查看文本文件的内容，后接要查看的文件名，通常可用管道与more和less一起使用" class="headerlink" title="1.cat命令，用于查看文本文件的内容，后接要查看的文件名，通常可用管道与more和less一起使用"></a>1.cat命令，用于查看文本文件的内容，后接要查看的文件名，通常可用管道与more和less一起使用</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cat file1 从第一个字节开始正向查看文件的内容 </span><br><span class="line">tac file1 从最后一行开始反向查看一个文件的内容 </span><br><span class="line">cat -n file1 标示文件的行数 </span><br><span class="line">more file1 查看一个长文件的内容 </span><br><span class="line"></span><br><span class="line">head -n 2 file1 查看一个文件的前两行 </span><br><span class="line">tail -n 2 file1 查看一个文件的最后两行 </span><br><span class="line">tail -n +1000 file1  从1000行开始显示，显示1000行以后的</span><br><span class="line">cat filename | head -n 3000 | tail -n +1000  显示1000行到3000行</span><br><span class="line">cat filename | tail -n +3000 | head -n 1000  从第3000行开始，显示1000(即显示3000~3999行)</span><br></pre></td></tr></table></figure>
 

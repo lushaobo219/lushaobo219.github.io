@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>python基础数据类型之集合</title>
+    <url>/2021/05/24/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8B%E9%9B%86%E5%90%88/</url>
+    <content><![CDATA[<h1 id="一、集合"><a href="#一、集合" class="headerlink" title="一、集合"></a>一、集合</h1><p> set集合由{}(花括号，大括号)包裹，注意生成空的集合不能用空的{}，空的{}生成的是个空字典，列表和元组可以用这种方式生成空列表或元组。</p>
+<ul>
+<li>不同的元素组成(没有重复的元素)</li>
+<li>无序</li>
+<li>集合中的元素必须是不可变类型</li>
+</ul>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 定义一个集合</span><br><span class="line">set1 = &#123;1, 2, 3&#125;</span><br><span class="line">print(set1, type(set1))</span><br><span class="line"></span><br><span class="line"># 字符串转换为set集合</span><br><span class="line">set2 = set('hello')</span><br><span class="line">print(set2)</span><br><span class="line"></span><br><span class="line"># set集合有不同的元素组成,天然去重复</span><br><span class="line">set3 = &#123;1, 2, 3, 1, 2, 3&#125;</span><br><span class="line">print(set3)</span><br><span class="line"></span><br><span class="line"># set集合元素必须为不可变类型</span><br><span class="line"># set4 = &#123;1, 2, 3, [1, 2, 3]&#125;</span><br><span class="line"># TypeError: unhashable type: 'list'</span><br><span class="line"></span><br><span class="line"># 注意生成的是一个空字典</span><br><span class="line">temp1 = &#123;&#125;</span><br><span class="line">print(type(temp1))</span><br><span class="line"></span><br><span class="line"># 正确的生成空集合的姿势</span><br><span class="line">temp2 = set()</span><br><span class="line">print(type(temp2))</span><br><span class="line"></span><br><span class="line"># 这两种方式都可以生成空列表或元组</span><br><span class="line">t1 = ()</span><br><span class="line">t2 = tuple()</span><br><span class="line">print(type(t1), type(t2))</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="二、遍历"><a href="#二、遍历" class="headerlink" title="二、遍历"></a>二、遍历</h2><p>set集合只能遍历取值，因为无序，所以无法索引取值</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">set1 = &#123;1, 2, 3, 4, 5, 6&#125;</span><br><span class="line">for i in set1:</span><br><span class="line">  print(i)</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、添加"><a href="#三、添加" class="headerlink" title="三、添加"></a>三、添加</h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">set1 = &#123;1, 2, 3&#125;</span><br><span class="line">set1.add(4)</span><br><span class="line">print(set1)</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、更新"><a href="#四、更新" class="headerlink" title="四、更新"></a>四、<strong>更新</strong></h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 和添加一样</span><br><span class="line">set1 = &#123;1, 2, 3, 4, 5, 6, 'aaa', 'sss'&#125;</span><br><span class="line"># 添加一个值</span><br><span class="line">set1.update('a')</span><br><span class="line"># 添加多个值</span><br><span class="line">set1.update(['s','ss'])</span><br><span class="line">print(set1)</span><br></pre></td></tr></table></figure>
+
+<h2 id="五、删除"><a href="#五、删除" class="headerlink" title="五、删除"></a>五、<strong>删除</strong></h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">set1 = &#123;1, 2, 3, 4, 5, 6, 'aaa', 'sss'&#125;</span><br><span class="line">temp = set1.pop() # 随机删除并返回删除的元素</span><br><span class="line">print(set1, temp)</span><br><span class="line"></span><br><span class="line">set2 = &#123;1, 2, 3, 4, 5, 6, 'aaa', 'sss'&#125;</span><br><span class="line"># 指定删除,删除不存在的元素抛出异常</span><br><span class="line">set2.remove('aaa')</span><br><span class="line"># set2.remove('a') # KeyError: 'a'</span><br><span class="line">set2.discard('sss')</span><br><span class="line"># 删除不存在的元素不抛出异常</span><br><span class="line">set2.discard('s')</span><br><span class="line">print(set1)</span><br><span class="line"></span><br><span class="line"># 清空集合</span><br><span class="line">set2.clear()</span><br><span class="line">print(set2)</span><br></pre></td></tr></table></figure>
+
+<h2 id="六、定义一个不可变的集合"><a href="#六、定义一个不可变的集合" class="headerlink" title="六、定义一个不可变的集合"></a>六、<strong>定义一个不可变的集合</strong></h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">set1 = frozenset('hello')</span><br><span class="line">print(set1)</span><br><span class="line"># 添加抛出异常</span><br><span class="line"># set1.add('a') # 'frozenset' object has no attribute 'add'</span><br></pre></td></tr></table></figure>
+
+<h2 id="七、数学运算"><a href="#七、数学运算" class="headerlink" title="七、数学运算"></a>七、<strong>数学运算</strong></h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">set1 = &#123;'aa', 'bb', 'cc', 'zz'&#125;</span><br><span class="line">set2 = &#123;'aa', 'bb', 'dd', 'ee'&#125;</span><br><span class="line"># 交集,方法和符号两种一样</span><br><span class="line">print(set1.intersection(set2))</span><br><span class="line">print(set1 &amp; set2)</span><br><span class="line"></span><br><span class="line"># 并集</span><br><span class="line">print(set1.union(set2))</span><br><span class="line">print(set1 | set2)</span><br><span class="line"></span><br><span class="line"># 差集</span><br><span class="line">print(set1.difference(set2))</span><br><span class="line">print(set1 - set2)</span><br><span class="line"></span><br><span class="line"># 交叉补集</span><br><span class="line">print(set1.symmetric_difference(set2))</span><br><span class="line">print(set1 ^ set2)</span><br><span class="line"></span><br><span class="line"># 是否有交集,如果没有返回 True,否则返回 False</span><br><span class="line">print(set1.isdisjoint(set2))</span><br><span class="line"></span><br><span class="line">#某个集合是否是某个集合的子集,返回布尔值</span><br><span class="line">print(set1.issubset(set2))</span><br><span class="line"></span><br><span class="line">#某个集合是否是某个集合的父集,返回布尔值</span><br><span class="line">print(set1.issuperset(set2))</span><br></pre></td></tr></table></figure>
+
+<p>可能有人已经发现了，第一层的索引值无法改变，但是里面是一个可变的数据类型，就已经可以改变了。</p>
+<h2 id="八、总结"><a href="#八、总结" class="headerlink" title="八、总结"></a>八、总结</h2><h3 id="元组适合存储数据不会发生变化的少量数据。"><a href="#元组适合存储数据不会发生变化的少量数据。" class="headerlink" title="元组适合存储数据不会发生变化的少量数据。"></a>元组适合存储数据不会发生变化的少量数据。</h3><h3 id="列表适合存储数据容易发生变化的少量数据。"><a href="#列表适合存储数据容易发生变化的少量数据。" class="headerlink" title="列表适合存储数据容易发生变化的少量数据。"></a>列表适合存储数据容易发生变化的少量数据。</h3><h3 id="字典适合存存储大量的需要查询的数据。"><a href="#字典适合存存储大量的需要查询的数据。" class="headerlink" title="字典适合存存储大量的需要查询的数据。"></a>字典适合存存储大量的需要查询的数据。</h3><h3 id="集合适合存储值只能唯一的数据-去重-。"><a href="#集合适合存储值只能唯一的数据-去重-。" class="headerlink" title="集合适合存储值只能唯一的数据(去重)。"></a>集合适合存储值只能唯一的数据(去重)。</h3>]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>python基础数据类型之元组</title>
     <url>/2021/05/24/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8B%E5%85%83%E7%BB%84/</url>
     <content><![CDATA[<h1 id="一、元组"><a href="#一、元组" class="headerlink" title="一、元组"></a>一、元组</h1><p>​    有序列表叫元组：tuple。tuple和list非常类似，但是tuple一旦初始化就不能修改。</p>

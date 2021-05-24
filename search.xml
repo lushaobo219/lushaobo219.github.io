@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>python基础数据类型之元组</title>
+    <url>/2021/05/24/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8B%E5%85%83%E7%BB%84/</url>
+    <content><![CDATA[<h1 id="一、元组"><a href="#一、元组" class="headerlink" title="一、元组"></a>一、元组</h1><p>​    有序列表叫元组：tuple。tuple和list非常类似，但是tuple一旦初始化就不能修改。</p>
+<h2 id="二、tuple的定义"><a href="#二、tuple的定义" class="headerlink" title="二、tuple的定义"></a>二、tuple的定义</h2><p>Python的元组与列表类似，不同之处在于元组的元素不能修改。元组使用小括号，列表使用方括号。元组创建很简单，只需要在括号中添加元素，并使用逗号隔开即可。示例如下：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">tup1 = ('361way', 'com', 1997, 2000)</span><br><span class="line">print(type(tup1)) # &lt;class 'tuple'&gt;</span><br><span class="line"></span><br><span class="line">tup2 = (1, 2, 3, 4, 5)</span><br><span class="line"></span><br><span class="line">tup3 = "a", "b", "c", "d"</span><br><span class="line"></span><br><span class="line">print(type(tup3)) # &lt;class 'tuple'&gt;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p>这里通过tup3可以看出，其并没有用小括号进行包括，但其也是元组。所以需要记住：任意无符号的对象，以逗号隔开，默认为元组 。另外需要特别注意只有一个元素时元组的创建：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">tup1 = (111)</span><br><span class="line">print(type(tup1)) # &lt;class 'int'&gt;</span><br><span class="line"></span><br><span class="line">tup1 = ("abc")</span><br><span class="line">print(type(tup1)) # &lt;class 'str'&gt;</span><br><span class="line"></span><br><span class="line">tup1 = ("abc",)</span><br><span class="line">print(type(tup1)) # &lt;class 'tuple'&gt;</span><br></pre></td></tr></table></figure>
+
+<p>元组中只包含一个元素时，需要在元素后面添加逗号，否则就会是int  或 string 等其他数据类型。如果只是创建一个空元组时，则不受逗号的影响：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">tup1 = ()</span><br><span class="line">print(type(tup1)) # &lt;class 'tuple'&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、元组的索引与切片"><a href="#三、元组的索引与切片" class="headerlink" title="三、元组的索引与切片"></a>三、元组的索引与切片</h2><p>同字符串、列表类型一样，元组也支持索引与切片 。而且用法也相同，</p>
+<p>下面结合示例查看下：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">tup1 = ('361way', 'com', 2013, 2014)</span><br><span class="line">print(tup1[0]) # 361way</span><br><span class="line"></span><br><span class="line">print(tup1[4]) #取值超出其索引范围时报错</span><br><span class="line"></span><br><span class="line">tup2 = (1, 2, 3, 4, 5, 6, 7)</span><br><span class="line">print(tup2[1:5]) # (2, 3, 4, 5)</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、修改元组的值"><a href="#四、修改元组的值" class="headerlink" title="四、修改元组的值"></a>四、修改元组的值</h2><p>元组中的元素值是不允许删除的，但可以使用del语句来删除整个元组，如下实例:</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">tup1 = ('361way', 'com', 2013, 2014)</span><br><span class="line">del tup1[3]  # 删除单个元素，报错</span><br><span class="line"></span><br><span class="line">tup1[3] = 'abc'  # 更改一个元素的值，报错</span><br><span class="line">print(tup1[3])</span><br><span class="line"></span><br><span class="line">del tup1  # 删除整个元组，正常</span><br><span class="line">print(tup1)</span><br></pre></td></tr></table></figure>
+
+<p>在实际应用中，有时候会遇到需要修改元组的值，那怎么办呢？可以通过一个变通的方法实现。</p>
+<p>示例如下：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">tup1 = ('361way', 'com', 2013, 2014)</span><br><span class="line">list1 = list(tup1)</span><br><span class="line">print(list1) # ['361way', 'com', 2013, 2014]</span><br><span class="line"></span><br><span class="line">list1[3] = 'change'</span><br><span class="line">print(list1) # ['361way', 'com', 2013, 'change']</span><br><span class="line"></span><br><span class="line">tup1 = tuple(list1)</span><br><span class="line">print(tup1) # ('361way', 'com', 2013, 'change')</span><br></pre></td></tr></table></figure>
+
+<p> 可以将tuple元组的值先通过list转化为列表，再对列表内的值进行修改，修改为再将list转化为tuple 。</p>
+<p>不过这里需要注意的是此时的tup1已经非彼tup1，具体可以通过id函数进行查看，发现其内存地址已经发生了变化。</p>
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>python基础数据类型之字典</title>
     <url>/2021/05/23/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8B%E5%AD%97%E5%85%B8/</url>
     <content><![CDATA[<h2 id="一、字典"><a href="#一、字典" class="headerlink" title="一、字典"></a>一、字典</h2><p>​    字典用{}包括，由key和value组成的键值对，字典是个无序集合 列表、字典不能作为key值，key值只能是唯一的，字典中依然可以嵌套其他的数据类型，如:</p>

@@ -1,6 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>python基础数据类型之字符串</title>
+    <url>/2021/05/24/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8B%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <content><![CDATA[<h2 id="一、字符串"><a href="#一、字符串" class="headerlink" title="一、字符串"></a>一、字符串</h2><p>字符串是 Python 中最常用的基本数据类型。在我们编程中广泛使用，可以使用引号(‘或”)来创建字符串。注意 Python 中没有像 C++ 表示的字符类型（char），所有的字符或串都被统一为 str 对象。如单个字符 c 的类型也为 str。如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">str1 &#x3D; &quot;Hello Python&quot;</span><br><span class="line"></span><br><span class="line">str2 &#x3D; &quot;我们是好朋友&quot;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h3 id="二、字符串格式化"><a href="#二、字符串格式化" class="headerlink" title="二、字符串格式化"></a>二、字符串格式化</h3><table>
+<thead>
+<tr>
+<th>标识符</th>
+<th><em>*具体格式的数据类型</em></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%s</td>
+<td>字符串 (采用str()的显示)</td>
+</tr>
+<tr>
+<td>%r</td>
+<td>字符串 (采用repr()的显示)</td>
+</tr>
+<tr>
+<td>%c</td>
+<td>单个字符</td>
+</tr>
+<tr>
+<td>%b</td>
+<td>二进制整数</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>十进制整数</td>
+</tr>
+<tr>
+<td>%i</td>
+<td>十进制整数</td>
+</tr>
+<tr>
+<td>%o</td>
+<td>八进制整数</td>
+</tr>
+<tr>
+<td>%x</td>
+<td>十六进制整数</td>
+</tr>
+<tr>
+<td>%e</td>
+<td>指数 (基底写为e)</td>
+</tr>
+<tr>
+<td>%E</td>
+<td>指数 (基底写为E)</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>浮点数</td>
+</tr>
+<tr>
+<td>%F</td>
+<td>浮点数，与上相同</td>
+</tr>
+<tr>
+<td>%g</td>
+<td>指数(e)或浮点数 (根据显示长度)</td>
+</tr>
+<tr>
+<td>%G</td>
+<td>指数(E)或浮点数 (根据显示长度)</td>
+</tr>
+<tr>
+<td>%%</td>
+<td>字符”%”</td>
+</tr>
+</tbody></table>
+<h3 id="三、字符串使用format-函数"><a href="#三、字符串使用format-函数" class="headerlink" title="三、字符串使用format()函数"></a>三、字符串使用format()函数</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#1.使用默认顺序,不指定位置</span><br><span class="line">print("你的姓名：&#123;&#125;，年龄：&#123;&#125;".format("python","10"))</span><br><span class="line">输出：你的姓名：python，年龄：10</span><br><span class="line"></span><br><span class="line">#2.使用指定顺序，可以多次使用</span><br><span class="line">print("你的姓名:&#123;0&#125;,年龄：&#123;1&#125;,姓名：&#123;0&#125;".format("python","10"))</span><br><span class="line">输出：你的姓名:python,年龄：10,姓名：python</span><br><span class="line"></span><br><span class="line">#3.使用列表格式化</span><br><span class="line">info =["python",10]</span><br><span class="line">print("你的姓名：&#123;0[0]&#125;,年龄：&#123;0[1]&#125;".format(info))</span><br><span class="line">输出：你的姓名：python，年龄：10</span><br><span class="line"></span><br><span class="line">#4.使用字典格式</span><br><span class="line">infoDict =&#123;"name":"python","age":10&#125;</span><br><span class="line">print("你的姓名：&#123;name&#125;,年龄：&#123;age&#125;".format(**infoDict))</span><br><span class="line">输出：你的姓名：python，年龄：10</span><br></pre></td></tr></table></figure>
+
+<h3 id="四、获取字符串的长度"><a href="#四、获取字符串的长度" class="headerlink" title="四、获取字符串的长度"></a>四、<strong>获取字符串的长度</strong></h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">temp = 'hahahahahahaha'</span><br><span class="line">print(len(temp)) # 14</span><br></pre></td></tr></table></figure>
+
+<h3 id="五、切片取值"><a href="#五、切片取值" class="headerlink" title="五、切片取值"></a>五、<strong>切片取值</strong></h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># [起始位置索引:结束位置索引,不包含:步长]</span><br><span class="line">temp = "abcdefg"</span><br><span class="line">res1 = temp[::] # 注意:不可少</span><br><span class="line">print(res1) # abcdefg</span><br><span class="line">res2 = temp[0:-1:2]</span><br><span class="line">print(res2) # ace</span><br></pre></td></tr></table></figure>
+
+<h3 id="六、join"><a href="#六、join" class="headerlink" title="六、join"></a>六、<strong>join</strong></h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 字符串拼接</span><br><span class="line"># join方法是将字符串的每一位与调用的字符串进行拼接,除最后一位</span><br><span class="line">temp1 = 'abcd'</span><br><span class="line">temp2 = '-'</span><br><span class="line">res1 = temp2.join(temp1)</span><br><span class="line">print(res1) # a-b-c-d</span><br><span class="line"></span><br><span class="line"># 并不是两个字符串直接拼接</span><br><span class="line">temp3 = 'abc'</span><br><span class="line">temp4 = '123'</span><br><span class="line">res3 = temp3+temp4</span><br><span class="line">print(res3) # abc123</span><br></pre></td></tr></table></figure>
+
+<h3 id="七、replace"><a href="#七、replace" class="headerlink" title="七、replace"></a>七、<strong>replace</strong></h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 替换指定字符串replace('需要更新的字符串','更新的字符串',[更新几个字符串,默认全部,超过位数不报错])</span><br><span class="line">temp = 'hahahaha'</span><br><span class="line">res = temp.replace("a", "e", 50)</span><br><span class="line">print(res) # hehehehe</span><br></pre></td></tr></table></figure>
+
+<h3 id="八、find"><a href="#八、find" class="headerlink" title="八、find"></a>八、<strong>find</strong></h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 找到第一个位置   .find("e",[开始位置],[结束位置]) 注意不包含结束位置 &lt;=开始位置 &gt;结束位置</span><br><span class="line"># 找到返回索引 找不到返回-1</span><br><span class="line">temp = "hahe"</span><br><span class="line">res = temp.find("h",1,3)</span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
+
+<h3 id="九、遍历字符串"><a href="#九、遍历字符串" class="headerlink" title="九、遍历字符串"></a>九、遍历字符串</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">info = "大家一起努力,都实现自己的人生价值"</span><br><span class="line">for i in info:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+
+<h3 id="十、lower"><a href="#十、lower" class="headerlink" title="十、lower"></a>十、<strong>lower</strong></h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 将字符串中的所有大写字母转换为小写字母</span><br><span class="line">temp = "AAAaaaBBbb"</span><br><span class="line">res=temp.lower()</span><br><span class="line">print(res) # aaaaaabbbb</span><br></pre></td></tr></table></figure>
+
+<h3 id="十一、upper"><a href="#十一、upper" class="headerlink" title="十一、upper"></a>十一、<strong>upper</strong></h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 将字符串中的所有小写字母转换为大写字母</span><br><span class="line">temp = "abc"</span><br><span class="line">res=temp.upper()</span><br><span class="line">print(res) # ABC</span><br></pre></td></tr></table></figure>
+
+<h3 id="十二、strip"><a href="#十二、strip" class="headerlink" title="十二、strip"></a>十二、<strong>strip</strong></h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 删除字符串的前后空格(换行、制表符、指定参数)</span><br><span class="line"># 默认删除换行符,制表符,空格等特殊符号</span><br><span class="line">temp = "     a aa   \n "</span><br><span class="line">res=temp.strip( )</span><br><span class="line">print(res) # a aa</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>python基础数据类型之集合</title>
     <url>/2021/05/24/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8B%E9%9B%86%E5%90%88/</url>
     <content><![CDATA[<h1 id="一、集合"><a href="#一、集合" class="headerlink" title="一、集合"></a>一、集合</h1><p> set集合由{}(花括号，大括号)包裹，注意生成空的集合不能用空的{}，空的{}生成的是个空字典，列表和元组可以用这种方式生成空列表或元组。</p>

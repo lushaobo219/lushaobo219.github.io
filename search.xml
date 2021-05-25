@@ -84,7 +84,7 @@
 
 <h3 id="六、join"><a href="#六、join" class="headerlink" title="六、join"></a>六、<strong>join</strong></h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 字符串拼接</span><br><span class="line"># join方法是将字符串的每一位与调用的字符串进行拼接,除最后一位</span><br><span class="line">temp1 = 'abcd'</span><br><span class="line">temp2 = '-'</span><br><span class="line">res1 = temp2.join(temp1)</span><br><span class="line">print(res1) # a-b-c-d</span><br><span class="line"></span><br><span class="line"># 并不是两个字符串直接拼接</span><br><span class="line">temp3 = 'abc'</span><br><span class="line">temp4 = '123'</span><br><span class="line">res3 = temp3+temp4</span><br><span class="line">print(res3) # abc123</span><br></pre></td></tr></table></figure>
 
-<h3 id="七、replace"><a href="#七、replace" class="headerlink" title="七、replace"></a>七、<strong>replace</strong></h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 替换指定字符串replace('需要更新的字符串','更新的字符串',[更新几个字符串,默认全部,超过位数不报错])</span><br><span class="line">temp = 'hahahaha'</span><br><span class="line">res = temp.replace("a", "e", 50)</span><br><span class="line">print(res) # hehehehe</span><br></pre></td></tr></table></figure>
+<h3 id="七、replace"><a href="#七、replace" class="headerlink" title="七、replace"></a>七、<strong>replace</strong></h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 替换指定字符串replace('需要更新的字符串','更新的字符串',[更新几个字符串,默认全部,超过位数不报错])</span><br><span class="line">temp = 'hahahaha'</span><br><span class="line">res = temp.replace("a", "e")</span><br><span class="line">print(res) # hehehehe</span><br></pre></td></tr></table></figure>
 
 <h3 id="八、find"><a href="#八、find" class="headerlink" title="八、find"></a>八、<strong>find</strong></h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 找到第一个位置   .find("e",[开始位置],[结束位置]) 注意不包含结束位置 &lt;=开始位置 &gt;结束位置</span><br><span class="line"># 找到返回索引 找不到返回-1</span><br><span class="line">temp = "hahe"</span><br><span class="line">res = temp.find("h",1,3)</span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
 
@@ -95,6 +95,22 @@
 <h3 id="十一、upper"><a href="#十一、upper" class="headerlink" title="十一、upper"></a>十一、<strong>upper</strong></h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 将字符串中的所有小写字母转换为大写字母</span><br><span class="line">temp = "abc"</span><br><span class="line">res=temp.upper()</span><br><span class="line">print(res) # ABC</span><br></pre></td></tr></table></figure>
 
 <h3 id="十二、strip"><a href="#十二、strip" class="headerlink" title="十二、strip"></a>十二、<strong>strip</strong></h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 删除字符串的前后空格(换行、制表符、指定参数)</span><br><span class="line"># 默认删除换行符,制表符,空格等特殊符号</span><br><span class="line">temp = "     a aa   \n "</span><br><span class="line">res=temp.strip( )</span><br><span class="line">print(res) # a aa</span><br></pre></td></tr></table></figure>
+
+<h2 id="十三、capitalize"><a href="#十三、capitalize" class="headerlink" title="十三、capitalize"></a>十三、capitalize</h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 首字母大写</span><br><span class="line">temp = 'abc'</span><br><span class="line">res = temp.capitalize()</span><br><span class="line">print(res) # Abc</span><br></pre></td></tr></table></figure>
+
+<h2 id="十四、title"><a href="#十四、title" class="headerlink" title="十四、title"></a>十四、title</h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 每个单词首字母大写</span><br><span class="line">temp = "hello world"</span><br><span class="line">res = temp.title()</span><br><span class="line">print(res) # Hello World</span><br></pre></td></tr></table></figure>
+
+<h2 id="十五、endswith"><a href="#十五、endswith" class="headerlink" title="十五、endswith"></a>十五、endswith</h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 检查字符串是否以obj结束，如果是返回True,否则返回 False</span><br><span class="line">temp = "abc"</span><br><span class="line">print(temp.endswith(c)) # True</span><br></pre></td></tr></table></figure>
+
+<h2 id="十六、startswith"><a href="#十六、startswith" class="headerlink" title="十六、startswith"></a>十六、startswith</h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 检查字符串是否以obj开始，如果是返回True,否则返回 False</span><br><span class="line">temp = "abc"a</span><br><span class="line">print(temp.endswith(a)) # True</span><br></pre></td></tr></table></figure>
+
+<h2 id="十七、split"><a href="#十七、split" class="headerlink" title="十七、split"></a>十七、split</h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 切割字符串，返回列表</span><br><span class="line">temp = "hello world"</span><br><span class="line">res = temp.split(" ")</span><br><span class="line">print(res) # ["hello","world"]</span><br></pre></td></tr></table></figure>
+
+<h2 id="十八、count"><a href="#十八、count" class="headerlink" title="十八、count"></a>十八、count</h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 计算某个值在字符串出现的次数</span><br><span class="line">temp = "hello world"</span><br><span class="line">res = temp.count("l") </span><br><span class="line">print(res) # 3</span><br></pre></td></tr></table></figure>
+
+<h2 id="十九、index"><a href="#十九、index" class="headerlink" title="十九、index"></a>十九、index</h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 检测 str 是否包含在 mystr中，如果是返回开始的索引值，否则报错</span><br><span class="line">temp = "hello world"</span><br><span class="line">print(temp.index("a")) # ValueError: substring not found</span><br></pre></td></tr></table></figure>
+
+
 
 
 

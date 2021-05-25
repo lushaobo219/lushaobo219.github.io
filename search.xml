@@ -1,6 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>python基础之while、for、break、continue、pass</title>
+    <url>/2021/05/25/python%E5%9F%BA%E7%A1%80%E4%B9%8Bwhile%E3%80%81for%E3%80%81break%E3%80%81continue%E3%80%81pass/</url>
+    <content><![CDATA[<h2 id="一、while循环"><a href="#一、while循环" class="headerlink" title="一、while循环"></a>一、while循环</h2><p>循环语句是程序设计中常用的语句之一。任何编程语言都有while循环，Python也不例外。while循环的格式如下所示。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">while (表达式):</span><br><span class="line">    …</span><br><span class="line">else:</span><br><span class="line">    …</span><br></pre></td></tr></table></figure>
+
+<p>while循环的执行过程：当循环表达式为真时，依次执行while中的语句。直到循环表达式的值为False，程序的流程转到else语句。其中else子句可以省略，表达式两侧的括号也可以省略。</p>
+<p>注意：while循环中的else子句也属于循环的一部分，最后一次循环结束后将执行else子句。</p>
+<a id="more"></a>
+
+<p>下面这段代码演示了while循环的使用。程序首先要求输入5个数字，然后依次输出这5个数字。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"># while循环</span><br><span class="line">numbers = input("输入几个数字，用逗号分隔：").split(",")</span><br><span class="line">print(numbers)</span><br><span class="line">x = 0</span><br><span class="line">while x &lt; len(numbers):    # 当x的值小于输入字数的个数的时候，执行循环内容    </span><br><span class="line">    print (numbers[x])</span><br><span class="line">    x += 1                  # 一个循环结束时给x加1</span><br></pre></td></tr></table></figure>
+
+<p><strong>【代码说明】</strong></p>
+<ul>
+<li>第2行代码使用input()捕获输入。按照提示输入5个数字，并用逗号分隔。input()根据输入的逗号，生成一个列表。</li>
+<li>第3行代码输出列表numbers的内容。</li>
+<li>第4行代码定义变量x的值为0。</li>
+<li>第5行代码循环列表numbers。</li>
+<li>第6行代码输出列表中第x+1个数字的值。</li>
+<li>第7行代码，每次循环使变量x增1。</li>
+</ul>
+<p>下面例中的这段代码演示了else子句在while循环中的使用。当变量x的值大于0时，执行循环，否则输出变量x的值。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"> # 带else子句的while循环</span><br><span class="line"> x = float(input("输入x的值："))   # 接收用户输入的数字并转换为float类型</span><br><span class="line"> i = 0</span><br><span class="line"> while(x  != 0):                  # Python 3中的不等于不再使用&lt;&gt;，一律使用!=</span><br><span class="line">     if(x &gt; 0):</span><br><span class="line">         x -= 1                  # 如果x大于0，则减1</span><br><span class="line">     else:</span><br><span class="line">         x += 1                 # 如果x小于0，则加1</span><br><span class="line">     i = i + 1</span><br><span class="line">     print( "第%d次循环：%f" %(i, x))</span><br><span class="line">else:</span><br><span class="line">     print ("x等于0：", x)</span><br></pre></td></tr></table></figure>
+
+<p><strong>【代码说明】</strong></p>
+<ul>
+<li>第2行代码输入变量x的值。</li>
+<li>第3行代码定义变量i，变量i表示循环次数。</li>
+<li>第4行代码，给出循环条件x != 0。如果x不等于0，则执行第5行代码；否则，执行else子句的内容。</li>
+<li>第5行代码，判断变量x的值是否大于0。</li>
+<li>第6行代码，如果x的值大于0，则每次循环都减1。</li>
+<li>第7行代码，判断变量x的值是否小于0。</li>
+<li>第8行代码，如果x的值小于0，则每次循环都加1。</li>
+<li>第9行代码，每次循环使变量i的值加1。 </li>
+<li>第11行代码，循环结束，else子句输出变量x的值。输出结果（假设输入数字为0）：x等于0:0。</li>
+</ul>
+<p>在使用循环语句时，应注意循环表达式的布尔值，避免出现死循环。死循环是指循环条件永远为真的循环。例如：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">i = 1</span><br><span class="line">while i &gt; 0:     # i永远大于0</span><br><span class="line">    i = i + 1</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+
+<p>这段代码就是一个死循环，变量i的值永远都大于0。</p>
+<h2 id="二、for循环"><a href="#二、for循环" class="headerlink" title="二、for循环"></a>二、<strong>for循环</strong></h2><p>for循环用于遍历一个集合，依次访问集合中的每个项目。for循环的格式如下所示。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">for 变量 in 集合：</span><br><span class="line">    …</span><br><span class="line">else：</span><br><span class="line">    …</span><br></pre></td></tr></table></figure>
+
+
+<p>for…in…循环的执行过程：每次循环从集合中取出一个值，并把该值赋值给变量。集合可以是元组、列表、字典等数据结构。其中else子句可以省略。</p>
+<p>注意：for循环中的else子句也属于循环的一部分，最后一次循环结束后将执行else子句。</p>
+<p>for…in…循环通常与range()函数一起使用，range()返回一个列表，for…in…遍历列表中的元素。range()函数的声明如下：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">class range(object)</span><br><span class="line">   range(stop) -&gt; range object</span><br><span class="line">range(start, stop[, step]) -&gt; range object</span><br></pre></td></tr></table></figure>
+
+
+
+<p>下面例中的这段代码遍历range()生成的列表，过滤出正数、负数和0。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"># for in语句</span><br><span class="line">for x in range(-1, 2):</span><br><span class="line">    if x &gt; 0: </span><br><span class="line">        print ("正数：",x)</span><br><span class="line">    elif x == 0 : </span><br><span class="line">        print ("零：",x)</span><br><span class="line">    else:</span><br><span class="line">        print ("负数：",x)</span><br><span class="line">else:</span><br><span class="line">    print ("循环结束")</span><br></pre></td></tr></table></figure>
+
+<p><strong>【代码说明】</strong></p>
+<ul>
+<li>第2行代码遍历range(-1,2)生成的列表。range(-1,2)返回的3个数字分别为-1、0、1。每次循环结束，变量x的值依次为-1、0、1。</li>
+<li>第3行代码判断变量x的值是否大于0。</li>
+<li>第4行代码输出正数的值。输出结果为“正数：1”。</li>
+<li>第5行代码判断变量x的值是否等于0。</li>
+<li>第6行代码，输出结果为“零：0”。</li>
+<li>第8行代码，输出负数的值。输出结果为“负数：-1”。</li>
+<li>第9行代码并没有结束for循环，else子句执行后循环才结束。输出结果为“负数：-1”。</li>
+</ul>
+<p>在C、Java语言中，支持如下结构的for语句。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">for(表达式1; 表达式2; 表达式3) </span><br><span class="line">语句块</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Python不支持这样的for循环。如果需要编写类似功能的循环，可以使用while循环。例如：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">x = 0</span><br><span class="line">while x &lt; 5:</span><br><span class="line">    print(x)</span><br><span class="line">    x = x + 2</span><br></pre></td></tr></table></figure>
+
+
+
+<p>while循环的写法比较琐碎，需要比较判断。因此，对此也可以使用for循环，借助range()函数来实现。例如：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">for x in range(0, 5, 2):</span><br><span class="line">    print (x)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>【代码说明】</strong></p>
+<p>输出的数字在［0,5）这个区间，不包括5。每次循环结束，x的值加2。输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">0</span><br><span class="line">2</span><br><span class="line">4</span><br></pre></td></tr></table></figure>
+
+<p>这里只用了两行代码就实现了传统for循环。如果要用条件表达式作为循环的条件，可以构造range()函数来实现。</p>
+<h2 id="三、break和continue语句"><a href="#三、break和continue语句" class="headerlink" title="三、break和continue语句"></a>三、<strong>break和continue语句</strong></h2><p>break语句可以使程序跳出循环语句，从而执行循环体之外的程序，即break语句可以提前结束循环。例如，模拟<a href="http://mp.weixin.qq.com/s?__biz=MzI5OTk5OTM2Mw==&mid=2247519095&idx=2&sn=d594eeeaf791ba537733720e33cfc9df&chksm=ec8cc29bdbfb4b8d2ca1e39cc73c788aa0bf5601e3119864db73d44e73dac443f3035f46c15d&scene=21#wechat_redirect" target="_blank" rel="noopener">switch</a>分支结构使用了break语句。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">operator = "+"</span><br><span class="line">x = 1</span><br><span class="line">y = 2</span><br><span class="line">for case in switch(operator):   # switch只能用于for... in...循环中</span><br><span class="line">    if case('+'):</span><br><span class="line">        print (x + y)</span><br><span class="line">        break</span><br><span class="line">    if case('-'):</span><br><span class="line">       print (x - y)</span><br><span class="line">       break</span><br><span class="line">    if case('*'):</span><br><span class="line">       print (x * y)</span><br><span class="line">       break</span><br><span class="line">    if case('/'):</span><br><span class="line">       print (x / y)</span><br><span class="line">       break</span><br><span class="line">    if case():                      # 默认分支</span><br><span class="line">       print ("")</span><br></pre></td></tr></table></figure>
+
+<p><strong>【代码说明】</strong></p>
+<p>第7行代码中使用了break。当变量operator的值为“+”，则执行表达式x + y，然后中断switch分支结构，后面的case分支都不会执行。此时输出结果为3。后面的break作用相同。当匹配到某个case后，程序将跳出switch。</p>
+<p>如果第一个case不使用break子句，程序将输出两个值，分别是3和-1。因为执行完输出表达式x + y后，分支结构并没有中断，程序将流转到下面一个case。然后继续计算表达式x – y的值，遇到后面的break语句才退出分支结构。break语句在循环结构中也有类似的作用。例中的这段代码将从0到99中查找用户输入的值。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">x = int(input("输入x的值："))</span><br><span class="line">y = 0</span><br><span class="line">for y in range(0, 100):</span><br><span class="line">    if x == y:</span><br><span class="line">        print ("找到数字：", x)</span><br><span class="line">        break</span><br><span class="line">else:</span><br><span class="line">    print("没有找到")</span><br></pre></td></tr></table></figure>
+
+<p><strong>【代码说明】</strong></p>
+<ul>
+<li>第1行代码捕获用户输入的值，并把该值转换为int类型，赋值给变量x。</li>
+<li>第2行代码定义一个变量y，变量y用于暂存需要遍历的列表的值。</li>
+<li>第3行代码使用for…in…循环遍历range(0, 100)返回的列表。range(0, 100)的返回值为0、1、2、…、99。</li>
+<li>第4行代码判断输入的值是否等于列表中的值。如果条件成立，输出查找到的数字，并立即退出循环。循环结束，后面的else子句将不会被执行。</li>
+<li>第7行代码，当没有找到输入的值时，else子句后面的代码将被执行。</li>
+</ul>
+<p>注意：break语句不能运行在循环体或分支语句之外，否则，Python解释器将提示如下错误。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">SyntaxError: 'break' outside loop</span><br></pre></td></tr></table></figure>
+
+
+
+<p>continue语句也是用来跳出循环的语句，但是与break不同的是，使用continue语句不会跳出整个循环体，只是跳出当前的循环，然后继续执行后面的循环。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">x = 0</span><br><span class="line">for i in [1,2,3,4,5]:</span><br><span class="line">    if x == i:</span><br><span class="line">    continue</span><br><span class="line">x  += i</span><br><span class="line">print("x的值为", x)</span><br></pre></td></tr></table></figure>
+
+<p><strong>【代码说明】</strong></p>
+<ul>
+<li>第1行代码将x赋值为0。</li>
+<li>第2行代码使用for…in…语句遍历列表[1,2,3,4,5]。</li>
+<li>第3行代码将x与i进行比较，如果x与值i相等，则执行第4行的continue语句，停止当前循环，即不再执行第5行代码，继续执行下一个循环。</li>
+<li>第6行代码打印出最终的结果，输出为12。</li>
+</ul>
+<h2 id="四、pass"><a href="#四、pass" class="headerlink" title="四、pass"></a>四、pass</h2><p>在python中有时候能看到定义一个def函数，函数内容部分填写为pass。</p>
+<p>这里的pass主要作用就是占据位置，保证格式完整，保持语义完整，让代码整体完整。</p>
+<p>如果定义一个函数里面为空，那么就会报错，当你还没想清楚函数内部内容，就可以用pass来进行填坑。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">def iplaypython():</span><br><span class="line">    pass</span><br><span class="line">if __name__ == '__main__':</span><br><span class="line">	print(iplaypython())</span><br></pre></td></tr></table></figure>
+
+<p><strong>【代码说明】</strong></p>
+<ul>
+<li>第1行代码定义一个函数。</li>
+<li>第2行代码使用pass进行占位。</li>
+<li>第3行代码代码程序入口</li>
+<li>第4行代码打印最终结果，输出为None</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>python基础数据类型之字符串</title>
     <url>/2021/05/24/python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8B%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
     <content><![CDATA[<h2 id="一、字符串"><a href="#一、字符串" class="headerlink" title="一、字符串"></a>一、字符串</h2><p>字符串是 Python 中最常用的基本数据类型。在我们编程中广泛使用，可以使用引号(‘或”)来创建字符串。注意 Python 中没有像 C++ 表示的字符类型（char），所有的字符或串都被统一为 str 对象。如单个字符 c 的类型也为 str。如：</p>

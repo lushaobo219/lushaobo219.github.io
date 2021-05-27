@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.1">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="一、爬虫概述爬虫，又称为网页蜘蛛，网络机器人。爬虫是 模拟人操作客户端（浏览器，APP）向服务器发起网络请求，抓取数据的自动化程序或脚本。 说明： 1231.模拟：用爬虫程序伪装出人的行为，避免被服务器识别为爬虫程序。2.客户端：浏览器，APP都可以实现人与服务器之间的交互行为，应用客户端从服务器获取数据。3.自动机：数据量较小时可以人工获取数据，但往往在公司中爬取的数据量在百万条，千万条级别的，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python的requests库之爬虫简单实例">
+<meta property="og:url" content="http://yoursite.com/2021/05/27/Python%E7%9A%84requests%E5%BA%93%E4%B9%8B%E7%88%AC%E8%99%AB%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/index.html">
+<meta property="og:site_name" content="少年和狗">
+<meta property="og:description" content="一、爬虫概述爬虫，又称为网页蜘蛛，网络机器人。爬虫是 模拟人操作客户端（浏览器，APP）向服务器发起网络请求，抓取数据的自动化程序或脚本。 说明： 1231.模拟：用爬虫程序伪装出人的行为，避免被服务器识别为爬虫程序。2.客户端：浏览器，APP都可以实现人与服务器之间的交互行为，应用客户端从服务器获取数据。3.自动机：数据量较小时可以人工获取数据，但往往在公司中爬取的数据量在百万条，千万条级别的，">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-05-27T11:52:44.000Z">
+<meta property="article:modified_time" content="2021-05-27T12:12:03.627Z">
+<meta property="article:author" content="Mr Lu">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2021/05/27/Python%E7%9A%84requests%E5%BA%93%E4%B9%8B%E7%88%AC%E8%99%AB%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Python的requests库之爬虫简单实例 | 少年和狗</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <script src="https://lushaobo219.github.io/live2d/autoload.js"></script>
+  <div class="container use-motion">
+    <div class="headband"></div>
+	
+	<a href="https://github.com/lushaobo219/lushaobo219.github.io" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">少年和狗</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">暖暖的阳光，懒懒的幸福</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">12</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">0</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">32</span></a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/05/27/Python%E7%9A%84requests%E5%BA%93%E4%B9%8B%E7%88%AC%E8%99%AB%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gou.jpg">
+      <meta itemprop="name" content="Mr Lu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="少年和狗">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python的requests库之爬虫简单实例
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-27 19:52:44 / 修改时间：20:12:03" itemprop="dateCreated datePublished" datetime="2021-05-27T19:52:44+08:00">2021-05-27</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="一、爬虫概述"><a href="#一、爬虫概述" class="headerlink" title="一、爬虫概述"></a>一、爬虫概述</h2><p>爬虫，又称为网页蜘蛛，网络机器人。<br>爬虫是 模拟人操作客户端（浏览器，APP）向服务器发起网络请求，抓取数据的自动化程序或脚本。</p>
+<p>说明：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.模拟：用爬虫程序伪装出人的行为，避免被服务器识别为爬虫程序。</span><br><span class="line">2.客户端：浏览器，APP都可以实现人与服务器之间的交互行为，应用客户端从服务器获取数据。</span><br><span class="line">3.自动机：数据量较小时可以人工获取数据，但往往在公司中爬取的数据量在百万条，千万条级别的，所以要程序自动化获取数据。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 爬虫语言：PHP, C&#x2F;C++, JAVA, Python，GO</span><br><span class="line"># 对比：</span><br><span class="line">	PHP: 并发能力差，对多进程和多线程支持不好，数据量较大时爬虫效率较低。</span><br><span class="line">    C&#x2F;C++：语言效率高，但学习成本高，对程序员的技术能力要求较高，所以目前还停留在研究层面，市场需求量较小。</span><br><span class="line">    JAVA：python爬虫的主要竞争对手，由于java语言的特点，代码臃肿，代码量大，维护成本重构成本高，开发效率低，但目前市场上岗位需求比较旺盛。</span><br><span class="line">    Python：语法简单，学习成本低，对新手比较友好，python语言良好的生态，大量库和框架的支持是python爬虫目前处于爬虫圈的主导地位。</span><br></pre></td></tr></table></figure>
+
+<p>涉及主要知识点：</p>
+<ul>
+<li>web是如何交互的</li>
+<li>requests库的get、post函数的应用</li>
+<li>response对象的相关函数，属性</li>
+<li>python文件的打开，保存</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="二、安装requests库"><a href="#二、安装requests库" class="headerlink" title="二、安装requests库"></a>二、安装requests库</h2><h4 id="如何安装requests库-安装好python的朋友可以直接参考，没有的，建议先装一哈python环境"><a href="#如何安装requests库-安装好python的朋友可以直接参考，没有的，建议先装一哈python环境" class="headerlink" title="如何安装requests库(安装好python的朋友可以直接参考，没有的，建议先装一哈python环境)"></a><strong>如何安装requests库(安装好python的朋友可以直接参考，没有的，建议先装一哈python环境)</strong></h4><h4 id="windows用户，Linux用户几乎一样"><a href="#windows用户，Linux用户几乎一样" class="headerlink" title="windows用户，Linux用户几乎一样:"></a><strong>windows用户，Linux用户几乎一样:</strong></h4><h4 id="打开cmd输入以下命令即可，如果python的环境在C盘的目录，会提示权限不够，只需以管理员方式运行cmd窗口"><a href="#打开cmd输入以下命令即可，如果python的环境在C盘的目录，会提示权限不够，只需以管理员方式运行cmd窗口" class="headerlink" title="打开cmd输入以下命令即可，如果python的环境在C盘的目录，会提示权限不够，只需以管理员方式运行cmd窗口"></a><strong>打开cmd输入以下命令即可，如果python的环境在C盘的目录，会提示权限不够，只需以管理员方式运行cmd窗口</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple requests</span><br></pre></td></tr></table></figure>
+
+<p>Linux用户类似(ubantu为例): 权限不够的话在命令前加入sudo即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple requests</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、爬虫实例"><a href="#三、爬虫实例" class="headerlink" title="三、爬虫实例"></a>三、爬虫实例</h2><p><strong>代码中给出了注释，并且可以直接运行哦</strong></p>
+<h4 id="3-1、爬取强大的BD页面，打印页面信息"><a href="#3-1、爬取强大的BD页面，打印页面信息" class="headerlink" title="3.1、爬取强大的BD页面，打印页面信息"></a>3.1、<strong>爬取强大的BD页面，打印页面信息</strong></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 第一个爬虫示例,爬取百度页面</span><br><span class="line"></span><br><span class="line">import requests #导入爬虫的库，不然调用不了爬虫的函数</span><br><span class="line"></span><br><span class="line">response = requests.get("http://www.baidu.com")  #生成一个response对象</span><br><span class="line"></span><br><span class="line">response.encoding = response.apparent_encoding #设置编码格式</span><br><span class="line"></span><br><span class="line">print("状态码:"+ str( response.status_code ) ) #打印状态码</span><br><span class="line"></span><br><span class="line">print(response.text)#输出爬取的信息</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2、常用方法之get方法实例，下面还有传参实例"><a href="#3-2、常用方法之get方法实例，下面还有传参实例" class="headerlink" title="3.2、常用方法之get方法实例，下面还有传参实例"></a>3.2、<strong>常用方法之get方法实例，下面还有传参实例</strong></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 第二个get方法实例</span><br><span class="line"></span><br><span class="line">import requests #先导入爬虫的库，不然调用不了爬虫的函数</span><br><span class="line"></span><br><span class="line">response = requests.get("http://httpbin.org/get")  #get方法</span><br><span class="line"></span><br><span class="line">print( response.status_code ) #状态码</span><br><span class="line"></span><br><span class="line">print( response.text )</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3、常用方法之post方法实例，下面还有传参实例"><a href="#3-3、常用方法之post方法实例，下面还有传参实例" class="headerlink" title="3.3、常用方法之post方法实例，下面还有传参实例"></a>3.3、<strong>常用方法之post方法实例，下面还有传参实例</strong></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 第三个 post方法实例</span><br><span class="line"></span><br><span class="line">import requests #先导入爬虫的库，不然调用不了爬虫的函数</span><br><span class="line"></span><br><span class="line">response = requests.post("http://httpbin.org/post")  #post方法访问</span><br><span class="line"></span><br><span class="line">print( response.status_code ) #状态码</span><br><span class="line"></span><br><span class="line">print( response.text )</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-4、-put方法实例"><a href="#3-4、-put方法实例" class="headerlink" title="3.4、 put方法实例"></a>3.4、 <strong>put方法实例</strong></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 第四个 put方法实例</span><br><span class="line"></span><br><span class="line">import requests #先导入爬虫的库，不然调用不了爬虫的函数</span><br><span class="line"></span><br><span class="line">response = requests.put("http://httpbin.org/put")  # put方法访问</span><br><span class="line"></span><br><span class="line">print( response.status_code ) #状态码</span><br><span class="line"></span><br><span class="line">print( response.text )</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-5、常用方法之get方法传参实例-1"><a href="#3-5、常用方法之get方法传参实例-1" class="headerlink" title="3.5、常用方法之get方法传参实例(1)"></a>3.5、<strong>常用方法之get方法传参实例(1)</strong></h4><p>如果需要传多个参数只需要用&amp;符号连接即可如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 第五个 get传参方法实例</span><br><span class="line"></span><br><span class="line">import requests #先导入爬虫的库，不然调用不了爬虫的函数</span><br><span class="line"></span><br><span class="line">response = requests.get("http://httpbin.org/get?name=hezhi&amp;age=20")  # get传参</span><br><span class="line"></span><br><span class="line">print( response.status_code ) #状态码</span><br><span class="line"></span><br><span class="line">print( response.text )</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-6、常用方法之get方法传参实例-2"><a href="#3-6、常用方法之get方法传参实例-2" class="headerlink" title="3.6、常用方法之get方法传参实例(2)"></a>3.6、<strong>常用方法之get方法传参实例(2)</strong></h4><p>params用字典可以传多个</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 第六个 get传参方法实例</span><br><span class="line"></span><br><span class="line">import requests #先导入爬虫的库，不然调用不了爬虫的函数</span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">  "name":"hezhi",</span><br><span class="line">  "age":20</span><br><span class="line">&#125;</span><br><span class="line">response = requests.get( "http://httpbin.org/get" , params=data )  # get传参</span><br><span class="line"></span><br><span class="line">print( response.status_code ) #状态码</span><br><span class="line"></span><br><span class="line">print( response.text )</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-7、常用方法之post方法传参实例-2-和上一个有没有很像"><a href="#3-7、常用方法之post方法传参实例-2-和上一个有没有很像" class="headerlink" title="3.7、常用方法之post方法传参实例(2) 和上一个有没有很像"></a>3.7、<strong>常用方法之post方法传参实例(2) 和上一个有没有很像</strong></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 第七个 post传参方法实例</span><br><span class="line"></span><br><span class="line">import requests #先导入爬虫的库，不然调用不了爬虫的函数</span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">  "name":"hezhi",</span><br><span class="line">  "age":20</span><br><span class="line">&#125;</span><br><span class="line">response = requests.post( "http://httpbin.org/post" , params=data )  # post传参</span><br><span class="line"></span><br><span class="line">print( response.status_code ) #状态码</span><br><span class="line"></span><br><span class="line">print( response.text )</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-8、关于绕过反爬机制，以zh爸爸为例"><a href="#3-8、关于绕过反爬机制，以zh爸爸为例" class="headerlink" title="3.8、关于绕过反爬机制，以zh爸爸为例"></a>3.8、<strong>关于绕过反爬机制，以zh爸爸为例</strong></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 第好几个方法实例</span><br><span class="line"></span><br><span class="line">import requests #先导入爬虫的库，不然调用不了爬虫的函数</span><br><span class="line"></span><br><span class="line">response = requests.get( "http://www.zhihu.com")  #第一次访问知乎，不设置头部信息</span><br><span class="line"></span><br><span class="line">print( "第一次,不设头部信息,状态码:"+response.status_code )# 没写headers，不能正常爬取，状态码不是 200</span><br><span class="line"></span><br><span class="line">#下面是可以正常爬取的区别，更改了User-Agent字段</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line"></span><br><span class="line">    "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36"</span><br><span class="line"></span><br><span class="line">&#125; #设置头部信息,伪装浏览器</span><br><span class="line"></span><br><span class="line">response = requests.get( "http://www.zhihu.com" , headers=headers )  #get方法访问,传入headers参数，</span><br><span class="line"></span><br><span class="line">print( response.status_code ) # 200！访问成功的状态码</span><br><span class="line"></span><br><span class="line">print( response.text )</span><br></pre></td></tr></table></figure>
+
+<p>3.9、<strong>爬取信息并保存到本地</strong></p>
+<h6 id="因为目录关系，在D盘建立了一个叫做爬虫的文件夹，然后保存信息"><a href="#因为目录关系，在D盘建立了一个叫做爬虫的文件夹，然后保存信息" class="headerlink" title="因为目录关系，在D盘建立了一个叫做爬虫的文件夹，然后保存信息"></a>因为目录关系，在D盘建立了一个叫做爬虫的文件夹，然后保存信息</h6><p>注意文件保存时的encoding设置</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># 爬取一个html并保存</span><br><span class="line"></span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line">url = "http://www.baidu.com"</span><br><span class="line"></span><br><span class="line">response = requests.get( url )</span><br><span class="line"></span><br><span class="line">response.encoding = "utf-8" #设置接收编码格式</span><br><span class="line"></span><br><span class="line">print("\nr的类型" + str( type(response) ) )</span><br><span class="line"></span><br><span class="line">print("\n状态码是:" + str( response.status_code ) )</span><br><span class="line"></span><br><span class="line">print("\n头部信息:" + str( response.headers ) )</span><br><span class="line"></span><br><span class="line">print( "\n响应内容:" )</span><br><span class="line"></span><br><span class="line">print( response.text )</span><br><span class="line"></span><br><span class="line">#保存文件</span><br><span class="line">file = open("D:\\爬虫\\baidu.html","w",encoding="utf")  #打开一个文件，w是文件不存在则新建一个文件，这里不用wb是因为不用保存成二进制</span><br><span class="line"></span><br><span class="line">file.write( response.text )</span><br><span class="line"></span><br><span class="line">file.close()</span><br></pre></td></tr></table></figure>
+
+<p>3.10、<strong>爬取图片，保存到本地</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#保存百度图片到本地</span><br><span class="line"></span><br><span class="line">import requests #先导入爬虫的库，不然调用不了爬虫的函数</span><br><span class="line"></span><br><span class="line">response = requests.get("https://www.baidu.com/img/baidu_jgylogo3.gif")  #get方法的到图片响应</span><br><span class="line"></span><br><span class="line">file = open("D:\\爬虫\\baidu_logo.gif","wb") #打开一个文件,wb表示以二进制格式打开一个文件只用于写入</span><br><span class="line"></span><br><span class="line">file.write(response.content) #写入文件</span><br><span class="line"></span><br><span class="line">file.close()#关闭操作，运行完毕后去你的目录看一眼有没有保存成功</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="四、多线程爬虫封装类，MongoDB存储数据"><a href="#四、多线程爬虫封装类，MongoDB存储数据" class="headerlink" title="四、多线程爬虫封装类，MongoDB存储数据"></a>四、多线程爬虫封装类，MongoDB存储数据</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line">import threading</span><br><span class="line">import time</span><br><span class="line">from threading import Lock</span><br><span class="line">import requests</span><br><span class="line">from lxml import etree</span><br><span class="line">from queue import Queue</span><br><span class="line">import pymongo</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 爬虫类: 负责数据采集</span><br><span class="line">class CrawlThread(threading.Thread):</span><br><span class="line">    def __init__(self, crawlname, pageQueue, dataQueue):</span><br><span class="line">        super().__init__()</span><br><span class="line">        self.crawlname = crawlname  # 爬虫名, 用于监控爬虫的运行过程</span><br><span class="line">        self.pageQueue = pageQueue  # url队列, 用于存放url的</span><br><span class="line">        self.dataQueue = dataQueue  # 存放响应数据的</span><br><span class="line">        self.headers = &#123;</span><br><span class="line">            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36'</span><br><span class="line">        &#125;  # UA伪装</span><br><span class="line"></span><br><span class="line">    def run(self):</span><br><span class="line">        # 定义一个基准url</span><br><span class="line">        base_url = 'http://xiaohua.zol.com.cn/lengxiaohua/%s.html'</span><br><span class="line">        while 1:</span><br><span class="line">            try:</span><br><span class="line">                page = self.pageQueue.get(block=False)</span><br><span class="line">                # block参数代表队列是否阻塞</span><br><span class="line">                # 如果block=True, 代表阻塞, 如果队列为空, 在get时则产生阻塞, 直到队列中有元素可以get时为止, 开始获取元素</span><br><span class="line">                # block=False, 代表不阻塞, 如果队列为空, get操作会抛出异常</span><br><span class="line">                print('%s正在爬取数据'%self.crawlname)</span><br><span class="line">                # 请求页面, 获取响应数据</span><br><span class="line">                res = requests.get(base_url%page, headers=self.headers).text</span><br><span class="line">                # 将响应数据提交给dataQueue, 以便后续的解析线程取用</span><br><span class="line">                self.dataQueue.put(res)</span><br><span class="line">                print('%s提交数据完毕'%self.crawlname)</span><br><span class="line">            except:</span><br><span class="line">                break</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 解析类: 负责数据的解析及存储</span><br><span class="line">class ParseThread(threading.Thread):</span><br><span class="line">    def __init__(self, parsename, dataQueue, lock):</span><br><span class="line">        super().__init__()</span><br><span class="line">        self.parsename = parsename</span><br><span class="line">        self.dataQueue = dataQueue</span><br><span class="line">        self.lock = lock</span><br><span class="line"></span><br><span class="line">    def run(self):</span><br><span class="line">        while 1:</span><br><span class="line">            try:</span><br><span class="line">                html = self.dataQueue.get(block=False)</span><br><span class="line">                print('%s正在解析数据'%self.parsename)</span><br><span class="line">                self.parse(html)</span><br><span class="line">                print('%s解析数据完毕' % self.parsename)</span><br><span class="line">            except:</span><br><span class="line">                break</span><br><span class="line"></span><br><span class="line">    def parse(self, html):</span><br><span class="line">        tree = etree.HTML(html)</span><br><span class="line">        li_list = tree.xpath('//li[@class="article-summary"]')</span><br><span class="line">        for li in li_list:</span><br><span class="line">            title = li.xpath('./span[2]/a/text()')</span><br><span class="line">            href = li.xpath('./span[2]/a/@href')</span><br><span class="line">            content = li.xpath('.//div[@class="summary-text"]/text()')</span><br><span class="line">            if not all([title, href, content]):</span><br><span class="line">                continue</span><br><span class="line">            d = &#123;'title': title[0], 'href':href[0], 'content': content[0]&#125;</span><br><span class="line">            # 上锁</span><br><span class="line">            with self.lock:</span><br><span class="line">                self.save(d)</span><br><span class="line">    def save(self, d):</span><br><span class="line">        # 建立连接</span><br><span class="line">        conn = pymongo.MongoClient('localhost', 27017)</span><br><span class="line">        # 创建或连接已有的数据库</span><br><span class="line">        db = conn.douxing</span><br><span class="line">        table = db.suibian</span><br><span class="line">        table.insert_one(d)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    pageQueue = Queue()  # 存放url的队列</span><br><span class="line">    dataQueue = Queue()  # 存放响应数据的队列</span><br><span class="line">    for i in range(1,101):</span><br><span class="line">        # 向url队列中添加页码</span><br><span class="line">        pageQueue.put(i)</span><br><span class="line">    # 爬虫名列表, 用于监控爬虫</span><br><span class="line">    lock = Lock()</span><br><span class="line">    CrawlName = ['爬虫1', '爬虫2', '爬虫3','爬虫3','爬虫3','爬虫3','爬虫3','爬虫3','爬虫3','爬虫3','爬虫3','爬虫3','爬虫3','爬虫3','爬虫3','爬虫3',]</span><br><span class="line">    crawlList = []</span><br><span class="line">    for var in CrawlName:</span><br><span class="line">        # 实例化爬虫线程对象</span><br><span class="line">        c = CrawlThread(var, pageQueue, dataQueue)</span><br><span class="line">        # 调用线程对象的start方法, 开启线程</span><br><span class="line">        c.start()</span><br><span class="line">        crawlList.append(c)</span><br><span class="line">    for c in crawlList:</span><br><span class="line">        # 将线程统一执行join()操作</span><br><span class="line">        c.join()</span><br><span class="line">    parseName = ['解析1号','解析2号','解析3号','爬虫3','解析1号','解析2号','解析3号','爬虫3','解析1号','解析2号','解析3号','爬虫3']</span><br><span class="line">    parseList = []</span><br><span class="line">    for var in parseName:</span><br><span class="line">        p = ParseThread(var, dataQueue, lock)</span><br><span class="line">        p.start()</span><br><span class="line">        parseList.append(p)</span><br><span class="line">    for p in parseList:</span><br><span class="line">        p.join()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == '__main__':</span><br><span class="line">    start_time = time.time()</span><br><span class="line">    main()</span><br><span class="line">    end_time = time.time()</span><br><span class="line">    print(end_time-start_time)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4>
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Mr Lu
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2021/05/27/Python%E7%9A%84requests%E5%BA%93%E4%B9%8B%E7%88%AC%E8%99%AB%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/" title="Python的requests库之爬虫简单实例">http://yoursite.com/2021/05/27/Python的requests库之爬虫简单实例/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+	<div>
+	
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+	
+	</div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i>python</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/25/python%E5%9F%BA%E7%A1%80%E4%B9%8Bwhile%E3%80%81for%E3%80%81break%E3%80%81continue%E3%80%81pass/" rel="prev" title="python基础之while、for、break、continue、pass">
+      <i class="fa fa-chevron-left"></i> python基础之while、for、break、continue、pass
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、爬虫概述"><span class="nav-number">1.</span> <span class="nav-text">一、爬虫概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、安装requests库"><span class="nav-number">2.</span> <span class="nav-text">二、安装requests库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何安装requests库-安装好python的朋友可以直接参考，没有的，建议先装一哈python环境"><span class="nav-number">2.0.1.</span> <span class="nav-text">如何安装requests库(安装好python的朋友可以直接参考，没有的，建议先装一哈python环境)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#windows用户，Linux用户几乎一样"><span class="nav-number">2.0.2.</span> <span class="nav-text">windows用户，Linux用户几乎一样:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打开cmd输入以下命令即可，如果python的环境在C盘的目录，会提示权限不够，只需以管理员方式运行cmd窗口"><span class="nav-number">2.0.3.</span> <span class="nav-text">打开cmd输入以下命令即可，如果python的环境在C盘的目录，会提示权限不够，只需以管理员方式运行cmd窗口</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、爬虫实例"><span class="nav-number">3.</span> <span class="nav-text">三、爬虫实例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1、爬取强大的BD页面，打印页面信息"><span class="nav-number">3.0.1.</span> <span class="nav-text">3.1、爬取强大的BD页面，打印页面信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2、常用方法之get方法实例，下面还有传参实例"><span class="nav-number">3.0.2.</span> <span class="nav-text">3.2、常用方法之get方法实例，下面还有传参实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3、常用方法之post方法实例，下面还有传参实例"><span class="nav-number">3.0.3.</span> <span class="nav-text">3.3、常用方法之post方法实例，下面还有传参实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4、-put方法实例"><span class="nav-number">3.0.4.</span> <span class="nav-text">3.4、 put方法实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5、常用方法之get方法传参实例-1"><span class="nav-number">3.0.5.</span> <span class="nav-text">3.5、常用方法之get方法传参实例(1)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6、常用方法之get方法传参实例-2"><span class="nav-number">3.0.6.</span> <span class="nav-text">3.6、常用方法之get方法传参实例(2)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7、常用方法之post方法传参实例-2-和上一个有没有很像"><span class="nav-number">3.0.7.</span> <span class="nav-text">3.7、常用方法之post方法传参实例(2) 和上一个有没有很像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-8、关于绕过反爬机制，以zh爸爸为例"><span class="nav-number">3.0.8.</span> <span class="nav-text">3.8、关于绕过反爬机制，以zh爸爸为例</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#因为目录关系，在D盘建立了一个叫做爬虫的文件夹，然后保存信息"><span class="nav-number">3.0.8.0.1.</span> <span class="nav-text">因为目录关系，在D盘建立了一个叫做爬虫的文件夹，然后保存信息</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、多线程爬虫封装类，MongoDB存储数据"><span class="nav-number">4.</span> <span class="nav-text">四、多线程爬虫封装类，MongoDB存储数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">4.0.1.</span> <span class="nav-text"></span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Mr Lu"
+      src="/images/gou.jpg">
+  <p class="site-author-name" itemprop="name">Mr Lu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://lushaobo219.github.io/" title="GitHub → https:&#x2F;&#x2F;lushaobo219.github.io&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/1642416550.qq.com" title="E-Mail → 1642416550.qq.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">卢少波</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">86k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:18</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/clicklove.js"></script>
+
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var a=0;a<r.length;a++)t=r[a],0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}();var t,e}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+</html>

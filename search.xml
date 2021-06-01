@@ -1,6 +1,368 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Python基础之异常处理</title>
+    <url>/2021/06/01/Python%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<h2 id="一、什么是异常，什么是异常程序？"><a href="#一、什么是异常，什么是异常程序？" class="headerlink" title="一、什么是异常，什么是异常程序？"></a>一、<strong>什么是异常，什么是异常程序？</strong></h2><p><strong>异常：</strong>程序正常执行过程中出现的不正常的情况，该情况影响了程序的正常执行。</p>
+<p><strong>异常程序：</strong>是指程序执行的非法指令，比如常见的非法操作码，地址越界，算术溢出等，异常程序的出现一般有两种情况：</p>
+<ul>
+<li>程序设计时的编程错误或程序运行时的硬件错误</li>
+<li>精心设计地入侵系统程序（病毒）</li>
+</ul>
+<h4 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a><strong>异常处理</strong></h4><p>异常处理是编程语言或计算机硬件里的一种机制，用于处理软件或信息系统中出现的异常状况，即超出程序正常执行流程的某些特殊条件。</p>
+<p>Python提供了两个非常重要的功能来处理程序在运行中出现的异常和错误。经常使用的是try…except语句，拓展一下就是<strong>try-except-else-finally</strong>。</p>
+<ul>
+<li><strong>try</strong>：正常情况下，程序计划执行的语句。</li>
+<li><strong>except</strong>：程序异常是执行的语句。</li>
+<li><strong>else</strong>：程序无异常即try段代码正常执行后会执行该语句。</li>
+<li><strong>finally</strong>：不管有没有异常，都会执行的语句。</li>
+</ul>
+<h2 id="二、异常捕获"><a href="#二、异常捕获" class="headerlink" title="二、异常捕获"></a>二、异常捕获</h2><p>当发生异常时，我们就需要对异常进行捕获，然后进行相应的处理。python的异常捕获常用try…except…结构，把可能发生错误的语句放在try模块里，用except来处理异常，每一个try，都必须至少对应一个except。此外，与python异常相关的关键字主要有：</p>
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>关键字说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>try/except</td>
+<td>捕获异常并处理</td>
+</tr>
+<tr>
+<td>pass</td>
+<td>忽略异常</td>
+</tr>
+<tr>
+<td>as</td>
+<td>定义异常实例</td>
+</tr>
+<tr>
+<td>else</td>
+<td>如果try中的语句没有引发异常，则执行else中的语句</td>
+</tr>
+<tr>
+<td>finally</td>
+<td>无论是否出现异常，都执行的代码</td>
+</tr>
+<tr>
+<td>raise</td>
+<td>抛出/引发异常</td>
+</tr>
+</tbody></table>
+<h2 id="三、python常见异常"><a href="#三、python常见异常" class="headerlink" title="三、python常见异常"></a>三、python常见异常</h2><table>
+<thead>
+<tr>
+<th>异常名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BaseException</td>
+<td>所有异常的基类</td>
+</tr>
+<tr>
+<td>SystemExit</td>
+<td>解释器请求退出</td>
+</tr>
+<tr>
+<td>KeyboardInterrupt</td>
+<td>用户中断执行(通常是输入^C)</td>
+</tr>
+<tr>
+<td>Exception</td>
+<td>常规错误的基类</td>
+</tr>
+<tr>
+<td>StopIteration</td>
+<td>迭代器没有更多的值</td>
+</tr>
+<tr>
+<td>GeneratorExit</td>
+<td>生成器(generator)发生异常来通知退出</td>
+</tr>
+<tr>
+<td>StandardError</td>
+<td>所有的内建标准异常的基类</td>
+</tr>
+<tr>
+<td>ArithmeticError</td>
+<td>所有数值计算错误的基类</td>
+</tr>
+<tr>
+<td>FloatingPointError</td>
+<td>浮点计算错误</td>
+</tr>
+<tr>
+<td>OverflowError</td>
+<td>数值运算超出最大限制</td>
+</tr>
+<tr>
+<td>ZeroDivisionError</td>
+<td>除(或取模)零 (所有数据类型)</td>
+</tr>
+<tr>
+<td>AssertionError</td>
+<td>断言语句失败</td>
+</tr>
+<tr>
+<td>AttributeError</td>
+<td>对象没有这个属性</td>
+</tr>
+<tr>
+<td>EOFError</td>
+<td>没有内建输入,到达EOF 标记</td>
+</tr>
+<tr>
+<td>EnvironmentError</td>
+<td>操作系统错误的基类</td>
+</tr>
+<tr>
+<td>IOError</td>
+<td>输入/输出操作失败</td>
+</tr>
+<tr>
+<td>OSError</td>
+<td>操作系统错误</td>
+</tr>
+<tr>
+<td>WindowsError</td>
+<td>系统调用失败</td>
+</tr>
+<tr>
+<td>ImportError</td>
+<td>导入模块/对象失败</td>
+</tr>
+<tr>
+<td>LookupError</td>
+<td>无效数据查询的基类</td>
+</tr>
+<tr>
+<td>IndexError</td>
+<td>序列中没有此索引(index)</td>
+</tr>
+<tr>
+<td>KeyError</td>
+<td>映射中没有这个键</td>
+</tr>
+<tr>
+<td>MemoryError</td>
+<td>内存溢出错误(对于Python 解释器不是致命的)</td>
+</tr>
+<tr>
+<td>NameError</td>
+<td>未声明/初始化对象 (没有属性)</td>
+</tr>
+<tr>
+<td>UnboundLocalError</td>
+<td>访问未初始化的本地变量</td>
+</tr>
+<tr>
+<td>ReferenceError</td>
+<td>弱引用(Weak reference)试图访问已经垃圾回收了的对象</td>
+</tr>
+<tr>
+<td>RuntimeError</td>
+<td>一般的运行时错误</td>
+</tr>
+<tr>
+<td>NotImplementedError</td>
+<td>尚未实现的方法</td>
+</tr>
+<tr>
+<td>SyntaxError</td>
+<td>Python 语法错误</td>
+</tr>
+<tr>
+<td>IndentationError</td>
+<td>缩进错误</td>
+</tr>
+<tr>
+<td>TabError</td>
+<td>Tab 和空格混用</td>
+</tr>
+<tr>
+<td>SystemError</td>
+<td>一般的解释器系统错误</td>
+</tr>
+<tr>
+<td>TypeError</td>
+<td>对类型无效的操作</td>
+</tr>
+<tr>
+<td>ValueError</td>
+<td>传入无效的参数</td>
+</tr>
+<tr>
+<td>UnicodeError</td>
+<td>Unicode 相关的错误</td>
+</tr>
+<tr>
+<td>UnicodeDecodeError</td>
+<td>Unicode 解码时的错误</td>
+</tr>
+<tr>
+<td>UnicodeEncodeError</td>
+<td>Unicode 编码时错误</td>
+</tr>
+<tr>
+<td>UnicodeTranslateError</td>
+<td>Unicode 转换时错误</td>
+</tr>
+<tr>
+<td>Warning</td>
+<td>警告的基类</td>
+</tr>
+<tr>
+<td>DeprecationWarning</td>
+<td>关于被弃用的特征的警告</td>
+</tr>
+<tr>
+<td>FutureWarning</td>
+<td>关于构造将来语义会有改变的警告</td>
+</tr>
+<tr>
+<td>OverflowWarning</td>
+<td>旧的关于自动提升为长整型(long)的警告</td>
+</tr>
+<tr>
+<td>PendingDeprecationWarning</td>
+<td>关于特性将会被废弃的警告</td>
+</tr>
+<tr>
+<td>RuntimeWarning</td>
+<td>可疑的运行时行为(runtime behavior)的警告</td>
+</tr>
+<tr>
+<td>SyntaxWarning</td>
+<td>可疑的语法的警告</td>
+</tr>
+<tr>
+<td>UserWarning</td>
+<td>用户代码生成的警告</td>
+</tr>
+</tbody></table>
+<h2 id="四、捕获方式"><a href="#四、捕获方式" class="headerlink" title="四、捕获方式"></a>四、捕获方式</h2><h5 id="1、捕获所有异常"><a href="#1、捕获所有异常" class="headerlink" title="1、捕获所有异常"></a>1、捕获所有异常</h5><figure class="highlight"><table><tr><td class="code"><pre><span class="line">try:</span><br><span class="line">     &lt;语句&gt;</span><br><span class="line"> </span><br><span class="line">except:</span><br><span class="line"> </span><br><span class="line">      print('异常说明')</span><br></pre></td></tr></table></figure>
+
+<p>包括键盘中断和程序退出请求，因此慎用。</p>
+<h5 id="2、捕获指定异常"><a href="#2、捕获指定异常" class="headerlink" title="2、捕获指定异常"></a>2、捕获指定异常</h5><figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">try:</span><br><span class="line">     &lt;语句&gt;</span><br><span class="line"> </span><br><span class="line">except &lt;异常名&gt;:</span><br><span class="line"> </span><br><span class="line">      print('异常说明')</span><br></pre></td></tr></table></figure>
+
+<h5 id="3、捕获所有异常"><a href="#3、捕获所有异常" class="headerlink" title="3、捕获所有异常"></a>3、捕获所有异常</h5><figure class="highlight"><table><tr><td class="code"><pre><span class="line">try:</span><br><span class="line">     &lt;语句&gt;</span><br><span class="line"> </span><br><span class="line">except Exception:</span><br><span class="line"> </span><br><span class="line">      print('异常说明')</span><br></pre></td></tr></table></figure>
+
+<h5 id="4、捕获多个异常"><a href="#4、捕获多个异常" class="headerlink" title="4、捕获多个异常"></a>4、捕获多个异常</h5><p>捕获多个异常有两种方式，第一种是一个except同时处理多个异常，不区分优先级：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">try:</span><br><span class="line">     &lt;语句&gt;</span><br><span class="line"> </span><br><span class="line">except (&lt;异常名1&gt;, &lt;异常名2&gt;, ...):</span><br><span class="line"> </span><br><span class="line">      print('异常说明')</span><br></pre></td></tr></table></figure>
+
+<h5 id="5、第二种是区分优先级的"><a href="#5、第二种是区分优先级的" class="headerlink" title="5、第二种是区分优先级的"></a>5、第二种是区分优先级的</h5><figure class="highlight"><table><tr><td class="code"><pre><span class="line">try:</span><br><span class="line">     &lt;语句&gt;</span><br><span class="line"> </span><br><span class="line">except &lt;异常名1&gt;:</span><br><span class="line"> </span><br><span class="line">      print('异常说明1')</span><br><span class="line"> </span><br><span class="line">except &lt;异常名2&gt;:</span><br><span class="line"> </span><br><span class="line">      print('异常说明2')</span><br><span class="line"> </span><br><span class="line">except &lt;异常名3&gt;:</span><br><span class="line"> </span><br><span class="line">      print('异常说明3')</span><br></pre></td></tr></table></figure>
+
+<p>该种异常处理语法的规则是：</p>
+<ul>
+<li>执行try下的语句，如果引发异常，则执行过程会跳到第一个except语句。</li>
+<li>如果第一个except中定义的异常与引发的异常匹配，则执行该except中的语句。</li>
+<li>如果引发的异常不匹配第一个except，则会搜索第二个except，允许编写的except数量没有限制。</li>
+<li>如果所有的except都不匹配，则异常会传递到下一个调用本代码的最高层try代码中。</li>
+</ul>
+<h5 id="6、异常中的else"><a href="#6、异常中的else" class="headerlink" title="6、异常中的else"></a>6、异常中的else</h5><p>如果判断完没有某些异常之后还想做其他事，就可以使用下面这样的else语句。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">try:</span><br><span class="line">     &lt;语句&gt;</span><br><span class="line"> </span><br><span class="line">except &lt;异常名1&gt;:</span><br><span class="line"> </span><br><span class="line">      print('异常说明1')</span><br><span class="line"> </span><br><span class="line">except &lt;异常名2&gt;:</span><br><span class="line"> </span><br><span class="line">      print('异常说明2')</span><br><span class="line"> </span><br><span class="line">else:</span><br><span class="line"> </span><br><span class="line">      &lt;语句&gt;  # try语句中没有异常则执行此段代码</span><br></pre></td></tr></table></figure>
+
+<h5 id="7、异常中的finally"><a href="#7、异常中的finally" class="headerlink" title="7、异常中的finally"></a>7、异常中的finally</h5><p>try…finally…语句无论是否发生异常都将会执行最后的代码。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">try:</span><br><span class="line">     &lt;语句&gt;</span><br><span class="line"> </span><br><span class="line">finally:</span><br><span class="line"> </span><br><span class="line">      &lt;语句&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">try:</span><br><span class="line">    a = 5/0</span><br><span class="line">except Exception as e:</span><br><span class="line">    print("异常:",e)</span><br><span class="line">else:</span><br><span class="line">    print('程序无异常')</span><br><span class="line">finally:</span><br><span class="line">    print('无论异常与否，都会执行我')</span><br></pre></td></tr></table></figure>
+
+<h5 id="八、raise主动触发异常"><a href="#八、raise主动触发异常" class="headerlink" title="八、raise主动触发异常"></a>八、raise主动触发异常</h5><p>可以使用raise语句自己触发异常</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">def functionName( score ):</span><br><span class="line">    if score &lt; 0 or score &gt;100:</span><br><span class="line">        raise Exception("Invalid score!", score)</span><br><span class="line">        # 触发异常后，后面的代码就不会再执行</span><br><span class="line">functionName(200)</span><br></pre></td></tr></table></figure>
+
+<h5 id="九、用户自定义异常"><a href="#九、用户自定义异常" class="headerlink" title="九、用户自定义异常"></a>九、用户自定义异常</h5><p>通过创建一个新的异常类，程序可以命名它们自己的异常。异常应该是典型的继承自Exception类，通过直接或间接的方式</p>
+<p>代码：长度不低于3位</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">class ShortInputException(Exception):</span><br><span class="line">    def __init__(self, length, atleast):</span><br><span class="line">        self.length = length</span><br><span class="line">        self.atleast = atleast</span><br><span class="line">def main():</span><br><span class="line">    try:</span><br><span class="line">        s = input('请输入 --&gt; ')</span><br><span class="line">        if len(s) &lt; 3:</span><br><span class="line">            # raise引发一个你定义的异常</span><br><span class="line">            raise ShortInputException(len(s), 3)</span><br><span class="line">    except ShortInputException as result:#x这个变量被绑定到了错误的实例</span><br><span class="line">        print('ShortInputException: 输入的长度是 %d,长度至少应是 %d'% (result.length, result.atleast))</span><br><span class="line">    else:</span><br><span class="line">        print('没有异常发生')</span><br><span class="line">main()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># return</span><br><span class="line"># 请输入 --&gt; 33</span><br><span class="line"># ShortInputException: 输入的长度是 2,长度至少应是 3</span><br></pre></td></tr></table></figure>
+
+<h5 id="十、采用traceback模块查看异常"><a href="#十、采用traceback模块查看异常" class="headerlink" title="十、采用traceback模块查看异常"></a>十、采用traceback模块查看异常</h5><p>traceback会帮我们追溯到出错点：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">import traceback  # 导入模块</span><br><span class="line"> </span><br><span class="line">try:</span><br><span class="line">    1/0</span><br><span class="line">except Exception as e:</span><br><span class="line">    traceback.print_exc()</span><br></pre></td></tr></table></figure>
+
+<p>return：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File "D:/untitled1/untitled13/lianxi.py", line 71, in &lt;module&gt;</span><br><span class="line">    1 / 0</span><br><span class="line">ZeroDivisionError: division by zero</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python基础之文件操作、os模块的使用</title>
+    <url>/2021/06/01/Python%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E3%80%81os%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="一、Python文件操作"><a href="#一、Python文件操作" class="headerlink" title="一、Python文件操作"></a>一、Python文件操作</h2><h5 id="1、和其它编程语言一样，Python-也具有操作文件（I-O）的能力，比如打开文件、读取和追加数据、插入和删除数据、关闭文件、删除文件等。"><a href="#1、和其它编程语言一样，Python-也具有操作文件（I-O）的能力，比如打开文件、读取和追加数据、插入和删除数据、关闭文件、删除文件等。" class="headerlink" title="1、和其它编程语言一样，Python 也具有操作文件（I/O）的能力，比如打开文件、读取和追加数据、插入和删除数据、关闭文件、删除文件等。"></a>1、和其它编程语言一样，Python 也具有操作文件（I/O）的能力，比如打开文件、读取和追加数据、插入和删除数据、关闭文件、删除文件等。</h5><p>除了提供文件操作基本的函数之外，Python 还提供了很多模块，例如 fileinput 模块、pathlib 模块等，通过引入这些模块，我们可以获得大量实现文件操作可用的函数和方法（类属性和类方法），大大提供编写代码的效率。</p>
+<h5 id="2、假设，现在让你用Python开发一个软件来操作这个文件，你觉得你需要什么必要参数呢？"><a href="#2、假设，现在让你用Python开发一个软件来操作这个文件，你觉得你需要什么必要参数呢？" class="headerlink" title="2、假设，现在让你用Python开发一个软件来操作这个文件，你觉得你需要什么必要参数呢？"></a>2、假设，现在让你用Python开发一个软件来操作这个文件，你觉得你需要什么必要参数呢？</h5><p>文件路径：D:\110.txt （你想操作这个文件，必须要知道这个文件的位置）</p>
+<p>编码方式：utf-8，gbk，gb2312…. （文件其实就是数据的存储，数据存储你需要编码知道这个     数据是以什么编码存储的）</p>
+<p>操作模式：只读，只写，追加，写读，读写….</p>
+<p>创建一个py文件，利用Python代码打开这个文件</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">f = open('d:\110.txt',mode='r',encoding='utf-8')</span><br><span class="line">content = f.read()</span><br><span class="line">print(content)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p>有了文件的概念，我们无需再去考虑操作硬盘的细节，只需要关注操作文件的流程：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">#1. 打开文件，得到文件句柄并赋值给一个变量</span><br><span class="line">f=open('a.txt','r',encoding='utf-8') #默认打开模式就为r</span><br><span class="line"></span><br><span class="line">#2. 通过句柄对文件进行操作</span><br><span class="line">data=f.read()</span><br><span class="line"></span><br><span class="line">#3. 关闭文件</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+<h5 id="3、打开模式"><a href="#3、打开模式" class="headerlink" title="3、打开模式"></a>3、打开模式</h5><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="../imags/Python%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E3%80%81os%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/1.png" alt=""></p>
+<h2 id="二、文件操作：读"><a href="#二、文件操作：读" class="headerlink" title="二、文件操作：读"></a>二、文件操作：读</h2><h5 id="1、r模式"><a href="#1、r模式" class="headerlink" title="1、r模式"></a>1、r模式</h5><p>以只读方式打开文件，文件的指针将会放在文件的开头。是文件操作最常用的模式，也是默认模式，如果一个文件不设置mode，那么默认使用r模式操作文件。</p>
+<p>举例说明：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">f = open('1.txt','r',encoding='utf-8')</span><br><span class="line">print(f.read())</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+<h5 id="2、read-n"><a href="#2、read-n" class="headerlink" title="2、read(n)"></a>2、read(n)</h5><p> read()读取的时候指定读取到什么位置</p>
+<p> 在r模式下,n按照<strong>字符</strong>读取。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">f = open('1.txt','r',encoding='utf-8')</span><br><span class="line">print(f.read(3)) </span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+<h5 id="3、readline"><a href="#3、readline" class="headerlink" title="3、readline()"></a>3、readline()</h5><p>readline()读取每次只读取一行,注意点:readline()读取出来的数据在后面都有一个\n</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">f = open('1.txt','r',encoding='utf-8')</span><br><span class="line">print(f.readline())  # 每次只读取一行</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+<h5 id="4、readlines"><a href="#4、readlines" class="headerlink" title="4、readlines()"></a>4、<strong>readlines()</strong></h5><p> readlines() 返回一个列表，列表里面每个元素是原文件的每一行，如果文件很大，占内存，容易崩盘。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">f = open('1.txt','r',encoding='utf-8')</span><br><span class="line">print(f.readlines())</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line"># return</span><br><span class="line"># ['hello world, i am here!\n', 'hello world, i am here!\n', 'hello world, i am here!\n']</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-、for循环"><a href="#5-、for循环" class="headerlink" title="5 、for循环"></a>5 、<strong>for循环</strong></h5><p>for循环去读取，文件句柄是一个迭代器，他的特点就是每次循环只在内存中占一行的数据，非常节省内存。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">f = open('1.txt','r',encoding='utf-8')</span><br><span class="line">for line in f:</span><br><span class="line">    print(line)      #这种方式就是在一行一行的进行读取,它就执行了下边的功能</span><br><span class="line"></span><br><span class="line">print(f.readline())</span><br><span class="line">print(f.readline())</span><br><span class="line">print(f.readline())</span><br><span class="line">print(f.readline())</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+<h5 id="6、rb模式"><a href="#6、rb模式" class="headerlink" title="6、rb模式"></a>6、rb模式</h5><p>rb模式：以二进制格式打开一个文件用于只读。文件指针将会放在文件的开头。记住下面讲的也是一样，带b的都是以二进制的格式操作文件，他们主要是操作非文字文件：图片，音频，视频等,并且如果你要是带有b的模式操作文件，那么不用声明编码方式</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">f = open('111.jpg','rb')</span><br><span class="line">print(f.read())</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="三、文件操作：写"><a href="#三、文件操作：写" class="headerlink" title="三、文件操作：写"></a>三、<strong>文件操作：写</strong></h2><h5 id="1、w模式"><a href="#1、w模式" class="headerlink" title="1、w模式"></a>1、<strong>w模式</strong></h5><p>如果文件不存在，利用w模式操作文件，那么它会先创建文件，然后写入内容.</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">f = open('2.txt','w',encoding='utf-8')</span><br><span class="line">f.write('你好')  # 以字符串类型写入</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+<h5 id="2、wb模式"><a href="#2、wb模式" class="headerlink" title="2、wb模式"></a>2、wb模式</h5><p>wb模式：以二进制格式打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。一般用于非文本文件如：图片，音频，视频等。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"># 将原图片通过rb模式读取</span><br><span class="line">f = open('111.jpg','rb')</span><br><span class="line">content = (f.read())</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line"># 将读取出来的数据通过wb模式写入新文件</span><br><span class="line">f = open('222.jpg','wb')</span><br><span class="line">f.write(content)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="四、文件操作：追加"><a href="#四、文件操作：追加" class="headerlink" title="四、文件操作：追加"></a>四、文件操作：追加</h2><h5 id="1、a模式"><a href="#1、a模式" class="headerlink" title="1、a模式"></a>1、<strong>a模式</strong></h5><p>打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">f = open('1.txt','a',encoding='utf-8')</span><br><span class="line">f.write("你好")</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="五、with"><a href="#五、with" class="headerlink" title="五、with"></a>五、with</h2><p>Python也提供了另一种方式：with open() as …. 的形式</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"># 利用with上下文管理这种方式，它会自动关闭文件句柄。</span><br><span class="line">with open('1.txt','r',encoding='utf-8') as f:</span><br><span class="line">    f.read()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"># 一个with 语句可以操作多个文件，产生多个文件句柄。</span><br><span class="line">with open('1.txt','r',encoding='utf-8') as f1,\</span><br><span class="line">        open('2.txt','w', encoding='utf-8') as f2:</span><br><span class="line">    f1.read()</span><br><span class="line">    f2.write('你好')</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="六、os模块"><a href="#六、os模块" class="headerlink" title="六、os模块"></a>六、os模块</h2><h5 id="1、导入模块"><a href="#1、导入模块" class="headerlink" title="1、导入模块"></a>1、导入模块</h5><figure class="highlight"><table><tr><td class="code"><pre><span class="line">import os</span><br></pre></td></tr></table></figure>
+
+<h5 id="2、修改文件名"><a href="#2、修改文件名" class="headerlink" title="2、修改文件名"></a>2、修改文件名</h5><figure class="highlight"><table><tr><td class="code"><pre><span class="line">os.rename("1.txt","111.txt")</span><br></pre></td></tr></table></figure>
+
+<h5 id="3、删除文件"><a href="#3、删除文件" class="headerlink" title="3、删除文件"></a>3、删除文件</h5><figure class="highlight"><table><tr><td class="code"><pre><span class="line">os.remove("111.txt")</span><br></pre></td></tr></table></figure>
+
+<h5 id="4、创建目录"><a href="#4、创建目录" class="headerlink" title="4、创建目录"></a>4、创建目录</h5><figure class="highlight"><table><tr><td class="code"><pre><span class="line">os.mkdir('目录名')</span><br></pre></td></tr></table></figure>
+
+<h5 id="5、获取当前目录"><a href="#5、获取当前目录" class="headerlink" title="5、获取当前目录"></a>5、获取当前目录</h5><figure class="highlight"><table><tr><td class="code"><pre><span class="line">os.getcwd()</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python基础之函数</title>
     <url>/2021/05/30/Python%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h2 id="一、函数的定义"><a href="#一、函数的定义" class="headerlink" title="一、函数的定义"></a>一、函数的定义</h2><p>所谓函数，就是一段可以实现某种功能的代码，基本作用有两个。</p>

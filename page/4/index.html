@@ -174,7 +174,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">44</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">45</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -225,6 +225,93 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/05/10/Linux%E4%B8%8B%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEJDK-Tomcat-Jenkins-mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gou.jpg">
+      <meta itemprop="name" content="Mr Lu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="少年和狗">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/10/Linux%E4%B8%8B%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEJDK-Tomcat-Jenkins-mysql/" class="post-title-link" itemprop="url">Linux下安装配置JDK+Tomcat+Jenkins+mysql</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-10 20:46:46" itemprop="dateCreated datePublished" datetime="2021-05-10T20:46:46+08:00">2021-05-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-22 15:46:30" itemprop="dateModified" datetime="2021-05-22T15:46:30+08:00">2021-05-22</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1，JDK安装"><a href="#1，JDK安装" class="headerlink" title="1，JDK安装"></a>1，JDK安装</h1><h3 id="1-1-新建jdk文件夹（路径：-usr-local-jdk）"><a href="#1-1-新建jdk文件夹（路径：-usr-local-jdk）" class="headerlink" title="1.1)  新建jdk文件夹（路径：/usr/local/jdk）"></a>1.1)  新建jdk文件夹（路径：/usr/local/jdk）</h3><h3 id="1-2-将jdk安装包解压到jdk文件夹中"><a href="#1-2-将jdk安装包解压到jdk文件夹中" class="headerlink" title="1.2)  将jdk安装包解压到jdk文件夹中"></a>1.2)  将jdk安装包解压到jdk文件夹中</h3><h4 id="tar-–xvf-jdk-7u71-linux-i586-tar-gz-–C-usr-local-jdk"><a href="#tar-–xvf-jdk-7u71-linux-i586-tar-gz-–C-usr-local-jdk" class="headerlink" title="tar –xvf jdk-7u71-linux-i586.tar.gz –C /usr/local/jdk/"></a>tar –xvf jdk-7u71-linux-i586.tar.gz –C /usr/local/jdk/</h4><p>(下载安装包的时候，注意系统位数，我的是64位，附上下载地址：<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html</a>)</p>
+<h3 id="1-3-配置jdk环境变量，打开-etc-profile配置文件，将下面配置拷贝进去"><a href="#1-3-配置jdk环境变量，打开-etc-profile配置文件，将下面配置拷贝进去" class="headerlink" title="1.3)  配置jdk环境变量，打开/etc/profile配置文件，将下面配置拷贝进去"></a>1.3)  配置jdk环境变量，打开/etc/profile配置文件，将下面配置拷贝进去</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#set java environment</span><br><span class="line">JAVA_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;jdk&#x2F;jdk1.8.0_131</span><br><span class="line">CLASSPATH&#x3D;.:$JAVA_HOME&#x2F;lib.tools.jar</span><br><span class="line">PATH&#x3D;$JAVA_HOME&#x2F;bin:$PATH</span><br><span class="line">export JAVA_HOME CLASSPATH PATH</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/10/Linux%E4%B8%8B%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEJDK-Tomcat-Jenkins-mysql/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -1040,100 +1127,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/23/Dockerfile%E7%9A%84%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%88%9B%E5%BB%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/gou.jpg">
-      <meta itemprop="name" content="Mr Lu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少年和狗">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/23/Dockerfile%E7%9A%84%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%88%9B%E5%BB%BA/" class="post-title-link" itemprop="url">'Dockerfile的介绍与创建'</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-23 11:30:28" itemprop="dateCreated datePublished" datetime="2020-09-23T11:30:28+08:00">2020-09-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-25 11:42:33" itemprop="dateModified" datetime="2020-09-25T11:42:33+08:00">2020-09-25</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-Dockerfile介绍"><a href="#1-Dockerfile介绍" class="headerlink" title="1:Dockerfile介绍"></a><strong>1:Dockerfile介绍</strong></h2><h3 id="Dockerfile概念："><a href="#Dockerfile概念：" class="headerlink" title="Dockerfile概念："></a><strong>Dockerfile概念：</strong></h3><p>Dockerfile用来构建镜像，对镜像描述，安装了哪些软件，执行了哪些操作，使用了哪个父镜像</p>
-<p>简单理解为镜像如何被创建出来的。</p>
-<p>Dockerfile是一个文件，按照一定格式编写：</p>
-<p>Dockerfile结构大致分为四个部分：</p>
-<p>　　（1）基础镜像信息</p>
-<p>　　（2）维护者信息</p>
-<p>　　（3）镜像操作指令</p>
-<p>　　（4）容器启动时执行指令。</p>
-<p>Dockerfile每行支持一条指令，每条指令可带多个参数，支持使用以#号开头的注释。下面会对上面使用到的一些常用指令做一些介绍。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/23/Dockerfile%E7%9A%84%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%88%9B%E5%BB%BA/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1206,7 +1199,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1263,13 +1256,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">118k</span>
+    <span title="站点总字数">122k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:47</span>
+    <span title="站点阅读时长">1:51</span>
 </div>
 
         
